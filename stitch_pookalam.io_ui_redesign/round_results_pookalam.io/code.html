@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pookalam.io — Round 2 Results &amp; Standings</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#ffb693",
+            "on-primary-container": "#6b4c00",
+            "error": "#ffb4ab",
+            "outline-variant": "#514532",
+            "primary-fixed": "#ffdea8",
+            "on-tertiary-fixed-variant": "#92001c",
+            "surface-variant": "#34324a",
+            "tertiary-container": "#ffb0ae",
+            "inverse-primary": "#7c5800",
+            "primary-fixed-dim": "#ffba20",
+            "on-surface-variant": "#d5c4ab",
+            "background": "#131127",
+            "surface-container-low": "#1b192f",
+            "on-primary-fixed": "#271900",
+            "on-background": "#e4dffe",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "surface-container-highest": "#34324a",
+            "on-secondary": "#561f00",
+            "inverse-on-surface": "#302e45",
+            "surface-container-lowest": "#0d0b21",
+            "on-primary-fixed-variant": "#5e4200",
+            "on-surface": "#e4dffe",
+            "on-secondary-container": "#572000",
+            "surface-bright": "#39364e",
+            "on-tertiary-container": "#a60022",
+            "surface-container-high": "#29273e",
+            "outline": "#9e8f78",
+            "surface-container": "#1f1d33",
+            "on-tertiary": "#680011",
+            "tertiary-fixed-dim": "#ffb3b1",
+            "secondary-container": "#fe6b00",
+            "tertiary": "#ffd7d5",
+            "on-tertiary-fixed": "#410007",
+            "surface": "#131127",
+            "surface-tint": "#ffba20",
+            "on-primary": "#412d00",
+            "primary-container": "#ffb800",
+            "secondary-fixed": "#ffdbcc",
+            "inverse-surface": "#e4dffe",
+            "tertiary-fixed": "#ffdad8",
+            "on-error": "#690005",
+            "surface-dim": "#131127",
+            "primary": "#ffdca1",
+            "on-secondary-fixed-variant": "#7a3000",
+            "on-secondary-fixed": "#351000",
+            "secondary": "#ffb693"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "board-radius-canvas": "520px",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "2rem",
+            "space-xs": "0.5rem",
+            "space-xl": "2rem",
+            "space-3xl": "4rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-2xl": "3rem",
+            "space-2xs": "0.25rem",
+            "space-sm": "0.75rem"
+          },
+          "fontFamily": {
+            "label-numeric": ["Space Grotesk"],
+            "headline-sm": ["Outfit"],
+            "display-xl": ["Outfit"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-pill": ["Space Grotesk"],
+            "headline-lg-mobile": ["Outfit"],
+            "display-xl-mobile": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Outfit"],
+            "headline-lg": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "label-numeric": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "display-xl": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-pill": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-xl-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .arcade-btn-primary {
+      background-color: #FFB800;
+      color: #131127;
+      box-shadow: 0 5px 0 0 #B88400, 0 12px 24px rgba(255, 184, 0, 0.25);
+      border: 2px solid #FFDE85;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .arcade-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 0 #B88400, 0 14px 28px rgba(255, 184, 0, 0.35);
+    }
+    .arcade-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 #B88400;
+    }
+
+    .arcade-btn-secondary {
+      background-color: #1F1C3D;
+      color: #FFF9ED;
+      border: 2px solid #39346E;
+      box-shadow: 0 4px 0 0 #0D0B21;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .arcade-btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 0 #0D0B21;
+      border-color: #FFB800;
+    }
+    .arcade-btn-secondary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #0D0B21;
+    }
+
+    .shimmer-progress {
+      background: linear-gradient(90deg, #FE6B00 0%, #FFB800 50%, #FFDEA8 100%);
+      background-size: 200% 100%;
+      animation: candyStripe 2s linear infinite;
+    }
+    @keyframes candyStripe {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    .gold-glow {
+      box-shadow: 0 0 0 2px #FFB800, 0 0 28px rgba(255, 184, 0, 0.35);
+    }
+    .emerald-glow {
+      box-shadow: 0 0 0 2px #10B981, 0 0 24px rgba(16, 185, 129, 0.28);
+    }
+
+    .confetti-petal {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.85;
+      animation: floatPetal 6s ease-in-out infinite alternate;
+    }
+    @keyframes floatPetal {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-16px) rotate(25deg); }
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden">
+<!-- Ambient Midnight Glow Blobs -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[400px] bg-secondary-container opacity-[0.07] blur-[120px] rounded-full"></div>
+<div class="absolute top-1/3 -left-40 w-[500px] h-[500px] bg-primary-container opacity-[0.05] blur-[140px] rounded-full"></div>
+<div class="absolute bottom-10 -right-40 w-[600px] h-[600px] bg-secondary-container opacity-[0.06] blur-[160px] rounded-full"></div>
+<!-- Floating festive floral petal vectors -->
+<svg class="confetti-petal top-24 left-[12%] w-6 h-6 text-primary-container fill-current" viewbox="0 0 24 24"><path d="M12 2C8 7 4 12 12 22C20 12 16 7 12 2Z"></path></svg>
+<svg class="confetti-petal top-40 right-[15%] w-7 h-7 text-secondary-container fill-current" style="animation-delay: 1.2s;" viewbox="0 0 24 24"><path d="M12 2C8 7 4 12 12 22C20 12 16 7 12 2Z"></path></svg>
+<svg class="confetti-petal bottom-48 left-[8%] w-5 h-5 text-tertiary-container fill-current" style="animation-delay: 2.5s;" viewbox="0 0 24 24"><path d="M12 2C8 7 4 12 12 22C20 12 16 7 12 2Z"></path></svg>
+<svg class="confetti-petal top-96 right-[8%] w-6 h-6 text-primary-fixed-dim fill-current" style="animation-delay: 0.7s;" viewbox="0 0 24 24"><path d="M12 2C8 7 4 12 12 22C20 12 16 7 12 2Z"></path></svg>
+</div>
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest border-b-2 border-surface-variant dark:border-surface-variant shadow-[0_4px_0_0_#0D0B21] docked full-width top-0 z-30 sticky">
+<div class="flex justify-between items-center w-full px-space-md md:px-gutter-desktop h-20 max-w-7xl mx-auto">
+<!-- Brand Logo -->
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high border-2 border-primary-container flex items-center justify-center shadow-[0_3px_0_0_#0D0B21]">
+<svg class="w-6 h-6 text-primary-container" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="3"></circle>
+<path d="M12 2a4 4 0 0 0-4 4c0 3 4 5 4 5s4-2 4-5a4 4 0 0 0-4-4z"></path>
+<path d="M12 22a4 4 0 0 0 4-4c0-3-4-5-4-5s-4 2-4 5a4 4 0 0 0 4 4z"></path>
+<path d="M2 12a4 4 0 0 0 4 4c3 0 5-4 5-4s-2-4-5-4a4 4 0 0 0-4 4z"></path>
+<path d="M22 12a4 4 0 0 0-4-4c-3 0-5 4-5 4s2 4 5 4a4 4 0 0 0 4-4z"></path>
+</svg>
+</div>
+<span class="font-headline-lg text-headline-lg tracking-tight font-extrabold text-primary-container dark:text-primary-container select-none">
+          Pookalam.io
+        </span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-primary-container dark:text-primary-container border-b-2 border-primary-container pb-1 font-bold transition-all duration-150 active:translate-y-1 font-body-md text-body-md" href="#arena">
+          Arena
+        </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium hover:text-primary dark:hover:text-primary transition-all duration-150 active:translate-y-1 font-body-md text-body-md" href="#lobbies">
+          Lobbies
+        </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium hover:text-primary dark:hover:text-primary transition-all duration-150 active:translate-y-1 font-body-md text-body-md" href="#leaderboard">
+          Leaderboard
+        </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium hover:text-primary dark:hover:text-primary transition-all duration-150 active:translate-y-1 font-body-md text-body-md" href="#rules">
+          How to Play
+        </a>
+</nav>
+<!-- Trailing Cluster -->
+<div class="flex items-center gap-space-sm">
+<!-- Room Pill -->
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-surface-variant font-label-numeric text-label-sm text-primary-fixed">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Room #POOKALAM
+        </div>
+<!-- Icons -->
+<button aria-label="Sound settings" class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px] align-middle">volume_up</span>
+</button>
+<button aria-label="Toggle fullscreen" class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px] align-middle">fullscreen</span>
+</button>
+<button aria-label="Game Settings" class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px] align-middle">settings</span>
+</button>
+<!-- Trailing Primary Action -->
+<button class="arcade-btn-primary font-headline-sm text-headline-sm uppercase px-4 py-2 rounded-xl text-sm leading-none flex items-center gap-1.5 ml-2 font-bold tracking-wider">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+          Create Room
+        </button>
+</div>
+</div>
+</header>
+<!-- Main Intermission Viewport -->
+<main class="flex-1 z-10 w-full max-w-7xl mx-auto px-space-md md:px-gutter-desktop py-space-lg flex flex-col gap-space-lg">
+<!-- Top Garland & Auto-Advance Progress Banner -->
+<section class="w-full bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-space-md md:p-space-lg shadow-[0_8px_0_0_#0D0B21] relative overflow-hidden">
+<!-- Decorative Onam Marigold & Mango Leaf Garland SVG Header -->
+<div class="absolute -top-1 left-0 right-0 h-6 flex justify-between pointer-events-none opacity-90 overflow-hidden">
+<svg class="w-full h-7 text-secondary-container" fill="none" preserveaspectratio="none" viewbox="0 0 1200 24">
+<path d="M0 0 C 75 22, 125 22, 200 0 C 275 22, 325 22, 400 0 C 475 22, 525 22, 600 0 C 675 22, 725 22, 800 0 C 875 22, 925 22, 1000 0 C 1075 22, 1125 22, 1200 0" fill="none" stroke="#FF6B00" stroke-width="3.5"></path>
+<circle cx="100" cy="14" fill="#FFB800" r="5"></circle>
+<circle cx="300" cy="14" fill="#FFB800" r="5"></circle>
+<circle cx="500" cy="14" fill="#FFB800" r="5"></circle>
+<circle cx="700" cy="14" fill="#FFB800" r="5"></circle>
+<circle cx="900" cy="14" fill="#FFB800" r="5"></circle>
+<circle cx="1100" cy="14" fill="#FFB800" r="5"></circle>
+</svg>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-2">
+<!-- Stage Announcement -->
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high border-2 border-primary-container flex items-center justify-center text-primary-container shadow-[0_3px_0_0_#0D0B21]">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+<path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+<path d="M4 22h16"></path>
+<path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+<path d="M6 4h12v7a6 6 0 0 1-12 0V4Z"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-pill text-label-pill uppercase tracking-widest px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-extrabold">
+                Intermission
+              </span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Room Standings Updated</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-black tracking-tight text-on-surface flex items-center gap-2">
+              Round 2 of 4 Complete!
+            </h1>
+</div>
+</div>
+<!-- Animated Countdown Gauge & Progress -->
+<div class="w-full md:w-80 flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-xs font-label-numeric">
+<span class="text-primary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container animate-spin" style="animation-duration: 4s;">sync</span>
+              Round 3 launching in <span class="text-primary-container text-sm" id="countdown-sec">7s</span>...
+            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase">Auto-Advance</span>
+</div>
+<div class="w-full h-3.5 bg-surface-container-highest rounded-full overflow-hidden border border-surface-variant p-0.5">
+<div class="h-full rounded-full shimmer-progress w-[75%] transition-all duration-1000 ease-linear" id="advance-bar"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Canvas: Left = Spotlight Hero Winner | Right = Full Standings -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Winner Spotlight Hero Card (5 Cols) -->
+<section class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-low border-2 border-primary-container rounded-3xl p-space-lg relative overflow-hidden shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] gold-glow">
+<!-- Golden Radial Background Glow -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-primary-container opacity-20 blur-3xl rounded-full pointer-events-none"></div>
+<!-- Marquee Badge -->
+<div class="flex justify-center -mt-2 mb-4">
+<div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary-container via-primary to-primary-container text-on-primary-container px-4 py-1.5 rounded-full border-2 border-primary-fixed shadow-[0_3px_0_0_#9E6B00]">
+<!-- Mini Floral Wreath SVG icon -->
+<svg class="w-4 h-4 text-on-primary-container" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM11 16L7 12L8.4 10.6L11 13.2L15.6 8.6L17 10L11 16Z"></path>
+</svg>
+<span class="font-headline-sm text-label-pill uppercase tracking-widest font-black">Round 2 Champion</span>
+<svg class="w-4 h-4 text-on-primary-container rotate-180" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C20 12 16 7 12 2Z"></path>
+</svg>
+</div>
+</div>
+<!-- Laurel Wreath & Large Kathakali Avatar Frame -->
+<div class="relative flex justify-center items-center my-3">
+<!-- Laurel Wreath SVG Vector Frame -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<svg class="w-56 h-56 text-primary-container" fill="none" stroke="currentColor" viewbox="0 0 240 240">
+<!-- Left Branch -->
+<path d="M60 170 C 45 130, 48 80, 85 45" stroke-linecap="round" stroke-width="3"></path>
+<path d="M50 145 C 38 140, 36 128, 48 128 C 54 128, 56 135, 50 145 Z" fill="#FFB800"></path>
+<path d="M47 115 C 35 110, 35 98, 48 100 C 54 101, 54 109, 47 115 Z" fill="#FFB800"></path>
+<path d="M54 85 C 44 78, 46 66, 58 70 C 64 72, 62 80, 54 85 Z" fill="#FFB800"></path>
+<path d="M69 60 C 62 52, 68 42, 78 48 C 84 52, 79 58, 69 60 Z" fill="#FFB800"></path>
+<!-- Right Branch -->
+<path d="M180 170 C 195 130, 192 80, 155 45" stroke-linecap="round" stroke-width="3"></path>
+<path d="M190 145 C 202 140, 204 128, 192 128 C 186 128, 184 135, 190 145 Z" fill="#FFB800"></path>
+<path d="M193 115 C 205 110, 205 98, 192 100 C 186 101, 186 109, 193 115 Z" fill="#FFB800"></path>
+<path d="M186 85 C 196 78, 194 66, 182 70 C 176 72, 178 80, 186 85 Z" fill="#FFB800"></path>
+<path d="M171 60 C 178 52, 172 42, 162 48 C 156 52, 161 58, 171 60 Z" fill="#FFB800"></path>
+<!-- Bottom Tie Bow -->
+<path d="M105 185 C 120 180, 120 180, 135 185" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<!-- Avatar Container with Chunky 3D Border -->
+<div class="relative z-10 w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-primary-container via-secondary-container to-primary-fixed shadow-[0_6px_0_0_#9E6B00]">
+<div class="w-full h-full rounded-full bg-surface-container-highest border-2 border-surface-lowest flex items-center justify-center overflow-hidden">
+<!-- Bespoke Stylized Kathakali Vector Mask Avatar -->
+<svg class="w-20 h-20 text-on-surface" fill="none" viewbox="0 0 100 100">
+<!-- Crown Kireedam -->
+<polygon fill="#FFB800" points="50,6 68,26 32,26" stroke="#7A5600" stroke-width="2"></polygon>
+<circle cx="50" cy="18" fill="#E63946" r="4"></circle>
+<circle cx="40" cy="22" fill="#10B981" r="2.5"></circle>
+<circle cx="60" cy="22" fill="#10B981" r="2.5"></circle>
+<path d="M28 26 Q50 30 72 26 L74 34 Q50 38 26 34 Z" fill="#FE6B00"></path>
+<!-- Green Paccha Face Base -->
+<path d="M28 35 C28 35 24 64 50 78 C76 64 72 35 72 35 Z" fill="#10B981"></path>
+<!-- White Chutti Ridge Border -->
+<path d="M26 35 C24 66 50 82 50 82 C50 82 76 66 74 35" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Eyes & Dramatic Kathakali Makeup -->
+<path d="M34 46 Q42 42 46 48 Q42 50 34 46 Z" fill="#0D0B21"></path>
+<circle cx="42" cy="46.5" fill="#E63946" r="1.5"></circle>
+<path d="M66 46 Q58 42 54 48 Q58 50 66 46 Z" fill="#0D0B21"></path>
+<circle cx="58" cy="46.5" fill="#E63946" r="1.5"></circle>
+<!-- Red Sacred Lips -->
+<path d="M44 65 Q50 68 56 65 Q50 62 44 65 Z" fill="#E63946"></path>
+<!-- Tilak Mark -->
+<path d="M49 34 L51 34 L52 42 L48 42 Z" fill="#FFDE85"></path>
+</svg>
+</div>
+</div>
+<!-- 1st Place Crown Overhang Badge -->
+<div class="absolute -top-3 z-20 w-9 h-9 bg-primary-container rounded-xl border-2 border-primary-fixed flex items-center justify-center shadow-[0_3px_0_0_#9E6B00]">
+<svg class="w-5 h-5 text-on-primary-container" fill="currentColor" viewbox="0 0 24 24">
+<path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z"></path>
+</svg>
+</div>
+</div>
+<!-- Winner Metadata -->
+<div class="text-center mt-1">
+<h2 class="font-headline-lg text-headline-lg font-black text-on-surface">Devanand</h2>
+<p class="text-on-surface-variant font-body-sm text-body-sm flex items-center justify-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              Lobby Host • Master Florist
+            </p>
+<!-- Score Pill -->
+<div class="inline-flex items-center gap-2 bg-surface-container-high border-2 border-surface-variant rounded-2xl px-5 py-2.5 mt-3 shadow-[0_4px_0_0_#0D0B21]">
+<span class="font-body-md text-body-md text-on-surface-variant">Round 2 Score:</span>
+<span class="font-label-numeric text-label-numeric text-primary-container font-black tracking-tight">+940 pts</span>
+</div>
+</div>
+<!-- Star Rating Breakdown & Votes -->
+<div class="bg-surface-container border border-surface-variant rounded-2xl p-space-sm mt-space-md flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="flex text-primary-container">
+<!-- 5 Vector Star SVGs (4 full, 1 partial) -->
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg class="w-4 h-4 fill-current opacity-60" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+</div>
+<span class="font-label-numeric text-sm font-bold text-on-surface">4.8 <span class="text-on-surface-variant font-normal text-xs">/ 5.0</span></span>
+</div>
+<span class="text-xs font-label-pill uppercase tracking-wider px-2 py-1 rounded-md bg-surface-container-high text-primary-fixed border border-surface-variant">
+              5 Votes Logged
+            </span>
+</div>
+<!-- Winning Floral Carpet Miniature Preview -->
+<div class="mt-space-md pt-space-sm border-t border-surface-variant">
+<div class="flex items-center justify-between mb-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-semibold">Submitted Pookalam</span>
+<span class="font-label-sm text-label-sm text-secondary">Theme: Atham First Petal</span>
+</div>
+<div class="w-full h-36 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant relative flex items-center justify-center overflow-hidden p-2">
+<!-- Radial Pookalam Concentric Mandala Graphic -->
+<svg class="w-32 h-32" viewbox="0 0 200 200">
+<!-- Base Outer Leaf Circle -->
+<circle cx="100" cy="100" fill="#0A3C2A" r="90" stroke="#10B981" stroke-width="2"></circle>
+<!-- Outer Petal Rings (Saffron / Marigold) -->
+<g fill="#FE6B00">
+<circle cx="100" cy="20" r="12"></circle>
+<circle cx="100" cy="180" r="12"></circle>
+<circle cx="20" cy="100" r="12"></circle>
+<circle cx="180" cy="100" r="12"></circle>
+<circle cx="43" cy="43" r="12"></circle>
+<circle cx="157" cy="157" r="12"></circle>
+<circle cx="43" cy="157" r="12"></circle>
+<circle cx="157" cy="43" r="12"></circle>
+</g>
+<circle cx="100" cy="100" fill="#B88400" r="68"></circle>
+<circle cx="100" cy="100" fill="#FFB800" r="64"></circle>
+<!-- Yellow/Red Rosette Core -->
+<g fill="#E63946">
+<path d="M100 45 C115 70, 115 70, 100 95 C85 70, 85 70, 100 45 Z"></path>
+<path d="M100 155 C115 130, 115 130, 100 105 C85 130, 85 130, 100 155 Z"></path>
+<path d="M45 100 C70 115, 70 115, 95 100 C70 85, 70 85, 45 100 Z"></path>
+<path d="M155 100 C130 115, 130 115, 105 100 C130 85, 130 85, 155 100 Z"></path>
+</g>
+<circle cx="100" cy="100" fill="#FFF9ED" r="28"></circle>
+<!-- Center Traditional Brass Lamp (Nilavilakku) Motif -->
+<path d="M100 80 L104 90 L108 95 L92 95 L96 90 Z" fill="#B88400"></path>
+<ellipse cx="100" cy="98" fill="#FFB800" rx="10" ry="3"></ellipse>
+<!-- Flame -->
+<path d="M100 82 C103 76 100 70 100 68 C100 70 97 76 100 82 Z" fill="#FE6B00"></path>
+<circle cx="100" cy="74" fill="#FFF9ED" r="2"></circle>
+</svg>
+<!-- Zoom badge -->
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-surface-container-high/80 border border-surface-variant font-label-sm text-[10px] text-on-surface-variant">
+                100% Vector Canvas
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Tournament Standings & XP Gains (7 Cols) -->
+<section class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest border-2 border-surface-variant rounded-3xl p-space-md md:p-space-lg shadow-[0_12px_32px_-4px_rgba(0,0,0,0.5)] flex flex-col gap-space-md">
+<!-- Standings Header -->
+<div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-surface-variant pb-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md font-extrabold text-on-surface flex items-center gap-2">
+                Leaderboard Standings
+                <span class="text-xs font-label-pill px-2.5 py-0.5 rounded-full bg-surface-container border border-surface-variant text-primary font-bold">
+                  After Round 2
+                </span>
+</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cumulative scores across all completed party rounds</p>
+</div>
+<!-- Sort / Metric Tab -->
+<div class="flex items-center gap-1 bg-surface-container-high p-1 rounded-xl border border-surface-variant text-xs font-label-sm">
+<button class="px-2.5 py-1 rounded-lg bg-primary-container text-on-primary-container font-bold shadow-sm">
+                Total Pts
+              </button>
+<button class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors font-medium">
+                Round Gain
+              </button>
+</div>
+</div>
+<!-- Standings Table Rows -->
+<div class="flex flex-col gap-2.5">
+<!-- RANK #1: Devanand -->
+<div class="flex items-center justify-between p-3 md:p-4 rounded-2xl bg-surface-container-low border-2 border-surface-variant hover:border-primary-container transition-all">
+<div class="flex items-center gap-3">
+<!-- Rank Badge: Gold Medal SVG -->
+<div class="w-9 h-9 rounded-xl bg-gradient-to-b from-primary-fixed to-primary-container flex items-center justify-center text-on-primary-container shadow-[0_2px_0_0_#9E6B00] flex-shrink-0 font-label-numeric font-black text-sm">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="14" r="6"></circle>
+<path d="M12 2L15 8L9 8L12 2Z"></path>
+<path d="M7 8L4 2L8 4L7 8Z"></path>
+<path d="M17 8L20 2L16 4L17 8Z"></path>
+</svg>
+</div>
+<!-- Avatar & Identifiers -->
+<div class="w-10 h-10 rounded-xl bg-surface-container border border-primary-container/60 p-0.5 flex-shrink-0 flex items-center justify-center">
+<!-- Mini Avatar -->
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#10B981" r="16"></circle>
+<polygon fill="#FFB800" points="18,4 23,12 13,12"></polygon>
+<circle cx="14" cy="18" fill="#0D0B21" r="2"></circle>
+<circle cx="22" cy="18" fill="#0D0B21" r="2"></circle>
+<path d="M15 25 Q18 28 21 25" stroke="#E63946" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-sm font-bold text-on-surface">Devanand</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-label-pill bg-primary-container/20 text-primary border border-primary-container/40">HOST</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label-sm">
+<span>Round: +940</span>
+<span>•</span>
+<span class="text-emerald-400 flex items-center">
+<svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                      1 pos
+                    </span>
+</div>
+</div>
+</div>
+<!-- Points & XP Gained -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label-sm text-emerald-400 font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                    +320 XP
+                  </span>
+<span class="text-[11px] font-body-sm text-on-surface-variant">High Accuracy</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label-numeric text-base md:text-lg text-primary-container font-black">1,890</span>
+<span class="block text-[10px] uppercase font-label-pill text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+<!-- RANK #2: Current User (YOU) Highlighted in Gold/Emerald Glow -->
+<div class="flex items-center justify-between p-3 md:p-4 rounded-2xl bg-surface-container border-2 border-primary-container emerald-glow relative overflow-hidden">
+<!-- Left accent bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-emerald-400"></div>
+<div class="flex items-center gap-3 pl-1.5">
+<!-- Rank Badge: Silver Medal SVG -->
+<div class="w-9 h-9 rounded-xl bg-gradient-to-b from-gray-200 to-gray-400 flex items-center justify-center text-surface-container-lowest shadow-[0_2px_0_0_#475569] flex-shrink-0 font-label-numeric font-black text-sm">
+<span class="font-black text-sm text-surface-container-lowest">#2</span>
+</div>
+<!-- Avatar & (YOU) tag -->
+<div class="w-10 h-10 rounded-xl bg-surface-container-high border-2 border-emerald-400 p-0.5 flex-shrink-0 flex items-center justify-center">
+<!-- Female Temple Dancer Vector Avatar -->
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#1F1D33" r="16"></circle>
+<circle cx="18" cy="15" fill="#FFB693" r="7"></circle>
+<path d="M11 15 C11 8 25 8 25 15 Z" fill="#0D0B21"></path>
+<circle cx="25" cy="11" fill="#FFB800" r="3.5"></circle>
+<circle cx="18" cy="13" fill="#E63946" r="1.5"></circle>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-sm font-bold text-on-surface">Ananya S.</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-pill bg-emerald-400 text-surface-container-lowest font-black tracking-wider">
+                      (YOU)
+                    </span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label-sm">
+<span>Round: +860</span>
+<span>•</span>
+<span class="text-emerald-400 flex items-center font-bold">
+<svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                      +2 ranks climbed!
+                    </span>
+</div>
+</div>
+</div>
+<!-- Points & XP Gained -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label-sm text-emerald-400 font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                    +290 XP
+                  </span>
+<span class="text-[11px] font-body-sm text-on-surface-variant">Speed Bonus</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label-numeric text-base md:text-lg text-emerald-400 font-black">1,780</span>
+<span class="block text-[10px] uppercase font-label-pill text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+<!-- RANK #3: Rohan Patel -->
+<div class="flex items-center justify-between p-3 md:p-4 rounded-2xl bg-surface-container-low border-2 border-surface-variant hover:border-surface-bright transition-all">
+<div class="flex items-center gap-3">
+<!-- Rank Badge: Bronze Medal SVG -->
+<div class="w-9 h-9 rounded-xl bg-gradient-to-b from-[#E08A58] to-[#99471A] flex items-center justify-center text-primary-fixed shadow-[0_2px_0_0_#5A2A10] flex-shrink-0 font-label-numeric font-black text-sm">
+<span class="font-black text-sm text-white">#3</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container border border-surface-variant p-0.5 flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#34324A" r="16"></circle>
+<circle cx="18" cy="16" fill="#FFDBCC" r="7"></circle>
+<rect fill="#FE6B00" height="4" rx="2" width="14" x="11" y="9"></rect>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-sm font-bold text-on-surface">Rohan K.</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label-sm">
+<span>Round: +720</span>
+<span>•</span>
+<span class="text-on-surface-variant">— No change</span>
+</div>
+</div>
+</div>
+<!-- Points & XP Gained -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label-sm text-emerald-400 font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                    +210 XP
+                  </span>
+<span class="text-[11px] font-body-sm text-on-surface-variant">Symmetry Bonus</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label-numeric text-base md:text-lg text-on-surface font-black">1,640</span>
+<span class="block text-[10px] uppercase font-label-pill text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+<!-- RANK #4: Meera Nair -->
+<div class="flex items-center justify-between p-3 md:p-4 rounded-2xl bg-surface-container-low border-2 border-surface-variant hover:border-surface-bright transition-all opacity-85">
+<div class="flex items-center gap-3">
+<!-- Rank Badge: Shield SVG #4 -->
+<div class="w-9 h-9 rounded-xl bg-surface-container-high border border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_2px_0_0_#0D0B21] flex-shrink-0 font-label-numeric font-bold text-xs">
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+<text fill="currentColor" font-size="9" font-weight="bold" text-anchor="middle" x="12" y="15">4</text>
+</svg>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container border border-surface-variant p-0.5 flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#1F1D33" r="16"></circle>
+<circle cx="18" cy="15" fill="#FFB693" r="7"></circle>
+<path d="M12 11 Q18 6 24 11" fill="none" stroke="#FE6B00" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-sm font-bold text-on-surface">Meera Nair</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label-sm">
+<span>Round: +610</span>
+<span>•</span>
+<span class="text-error flex items-center">
+<svg class="w-3.5 h-3.5 inline rotate-180" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                      1 rank
+                    </span>
+</div>
+</div>
+</div>
+<!-- Points & XP Gained -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label-sm text-emerald-400 font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                    +180 XP
+                  </span>
+<span class="text-[11px] font-body-sm text-on-surface-variant">Creativity</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label-numeric text-base md:text-lg text-on-surface font-black">1,450</span>
+<span class="block text-[10px] uppercase font-label-pill text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+<!-- RANK #5: Siddharth Menon -->
+<div class="flex items-center justify-between p-3 md:p-4 rounded-2xl bg-surface-container-low border-2 border-surface-variant hover:border-surface-bright transition-all opacity-75">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high border border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_2px_0_0_#0D0B21] flex-shrink-0 font-label-numeric font-bold text-xs">
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+<text fill="currentColor" font-size="9" font-weight="bold" text-anchor="middle" x="12" y="15">5</text>
+</svg>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container border border-surface-variant p-0.5 flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#1A182E" r="16"></circle>
+<circle cx="18" cy="16" fill="#FFDEA8" r="7"></circle>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-sm font-bold text-on-surface">Sid Menon</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label-sm">
+<span>Round: +540</span>
+<span>•</span>
+<span class="text-on-surface-variant">— No change</span>
+</div>
+</div>
+</div>
+<!-- Points & XP Gained -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label-sm text-emerald-400 font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                    +150 XP
+                  </span>
+<span class="text-[11px] font-body-sm text-on-surface-variant">Base Award</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label-numeric text-base md:text-lg text-on-surface font-black">1,210</span>
+<span class="block text-[10px] uppercase font-label-pill text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Tip Badge -->
+<div class="flex items-center gap-2 p-3 rounded-xl bg-surface-container border border-surface-variant text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary-container">info</span>
+<span>You climbed 2 positions to reach <strong>#2</strong>! Finish in the top 3 of Round 3 to unlock the Golden Marigold Crown badge.</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Action Area: Next Round Teaser + Manual Ready Control Dock -->
+<section class="w-full bg-surface-container-low border-2 border-surface-variant rounded-2xl p-space-md shadow-[0_8px_0_0_#0D0B21] flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Next Round Teaser -->
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container/20 border-2 border-secondary-container flex items-center justify-center flex-shrink-0 shadow-[0_3px_0_0_#9E4000]">
+<!-- Royal Crown Mahabali Vector Icon -->
+<svg class="w-8 h-8 text-secondary-container" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14v2H5v-2z"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-pill text-[11px] uppercase tracking-wider px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-extrabold">
+              Up Next • Round 3
+            </span>
+<span class="text-xs text-primary-container font-label-sm font-semibold">Special Multiplier: 1.5x</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-extrabold text-on-surface">
+            Theme: Grand King Mahabali &amp; Royal Umbrellas
+          </h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm hidden sm:block">
+            Canvas radius expands to 8 concentric rings. New petal unlocked: Purple Gomphrena (*Vadamalli*).
+          </p>
+</div>
+</div>
+<!-- Action Button Group -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-end">
+<button class="arcade-btn-secondary px-5 py-3 rounded-xl font-headline-sm text-sm font-bold uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">photo_library</span>
+          Save Carpet
+        </button>
+<button class="arcade-btn-primary px-8 py-3.5 rounded-xl font-headline-sm text-base font-extrabold uppercase tracking-widest flex items-center gap-2 shadow-[0_5px_0_0_#B88400]" id="ready-btn">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+          Ready for Next Round
+          <span class="ml-1 px-2 py-0.5 rounded-full bg-surface-container-lowest text-primary-container text-xs font-label-numeric font-bold">
+            3/5 Ready
+          </span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t-2 border-surface-variant dark:border-surface-variant flat no shadows mt-auto">
+<div class="w-full py-space-lg px-space-md md:px-gutter-desktop max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-space-md">
+<!-- Brand Logo & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left">
+<span class="font-headline-md text-headline-md font-black text-primary-container dark:text-primary-container">
+          Pookalam.io
+        </span>
+<span class="hidden sm:inline text-surface-variant">|</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">
+          © 2025 Pookalam.io. Real-time Onam Floral Carpet Arcade.
+        </span>
+</div>
+<!-- Footer Navigation Links -->
+<div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary-container dark:hover:text-primary-container transition-colors duration-150 active:opacity-80" href="#rules">
+          Game Rules
+        </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary-container dark:hover:text-primary-container transition-colors duration-150 active:opacity-80" href="#lore">
+          Flower Lore
+        </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary-container dark:hover:text-primary-container transition-colors duration-150 active:opacity-80" href="#host">
+          Host Screen
+        </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary-container dark:hover:text-primary-container transition-colors duration-150 active:opacity-80" href="#discord">
+          Community Discord
+        </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary-container dark:hover:text-primary-container transition-colors duration-150 active:opacity-80" href="#privacy">
+          Privacy
+        </a>
+</div>
+</div>
+</footer>
+<!-- Micro-Interaction Vanilla JS: 8s Auto-advance Countdown Timer & Manual Ready State -->
+<script>
+    let timeLeft = 7;
+    const countdownEl = document.getElementById('countdown-sec');
+    const advanceBar = document.getElementById('advance-bar');
+    const readyBtn = document.getElementById('ready-btn');
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      if (timeLeft >= 0) {
+        countdownEl.innerText = timeLeft + 's';
+        const percent = (timeLeft / 8) * 100;
+        advanceBar.style.width = percent + '%';
+      } else {
+        clearInterval(timer);
+        countdownEl.innerText = '0s';
+        advanceBar.style.width = '0%';
+      }
+    }, 1000);
+
+    readyBtn.addEventListener('click', () => {
+      readyBtn.classList.toggle('bg-emerald-400');
+      readyBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[20px]">check_circle</span>
+        YOU ARE READY!
+        <span class="ml-1 px-2 py-0.5 rounded-full bg-surface-container-lowest text-emerald-400 text-xs font-label-numeric font-bold">
+          4/5 Ready
+        </span>
+      `;
+    });
+  </script>
+</body></html>

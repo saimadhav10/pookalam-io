@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pookalam.io - Peer Review Arena</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,600;0,7..72,700;0,7..72,800;1,7..72,600&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#4a7c59",
+            "primary-container": "#78a886",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#112e1a",
+            "primary-fixed": "#c8e8d0",
+            "primary-fixed-dim": "#8ecf9e",
+            "secondary": "#6b6358",
+            "secondary-container": "#f0e8db",
+            "secondary-fixed": "#f0e8db",
+            "secondary-fixed-dim": "#d4ccbf",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#5e5548",
+            "tertiary": "#c85a32",
+            "tertiary-container": "#fce9e1",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#55210f",
+            "tertiary-fixed": "#f8e0a8",
+            "surface": "#faf6f0",
+            "surface-dim": "#dbd7cf",
+            "surface-bright": "#faf6f0",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f1ea",
+            "surface-container": "#f0ece4",
+            "surface-container-high": "#eae6de",
+            "surface-container-highest": "#e4e0d8",
+            "background": "#faf6f0",
+            "on-background": "#2e3230",
+            "on-surface": "#2e3230",
+            "on-surface-variant": "#5a605b",
+            "outline": "#74796e",
+            "outline-variant": "#c4c8bc",
+            "error": "#b83230",
+            "error-container": "#ffdad8",
+            "clay": "#c85a32",
+            "ochre": "#d98a2c",
+            "warm-amber": "#e6a147"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1.25rem",
+            "3xl": "1.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Literata", "serif"],
+            "display": ["Literata", "serif"],
+            "body": ["Nunito Sans", "sans-serif"],
+            "label": ["Nunito Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    
+    /* Tactile Terra Push Effects */
+    .terra-btn-primary {
+      box-shadow: 0 4px 0 0 #33593e, 0 8px 16px rgba(74, 124, 89, 0.25);
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .terra-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 0 #33593e, 0 12px 20px rgba(74, 124, 89, 0.3);
+    }
+    .terra-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #33593e;
+    }
+
+    .terra-btn-terracotta {
+      box-shadow: 0 4px 0 0 #943a1a, 0 8px 18px rgba(200, 90, 50, 0.25);
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .terra-btn-terracotta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 0 #943a1a, 0 12px 22px rgba(200, 90, 50, 0.32);
+    }
+    .terra-btn-terracotta:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #943a1a;
+    }
+
+    .terra-chip-btn {
+      box-shadow: 0 2px 0 0 #d4ccbf;
+      transition: all 0.1s ease;
+    }
+    .terra-chip-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 0 0 #c4c8bc;
+    }
+    .terra-chip-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 0 #c4c8bc;
+    }
+
+    /* Ambient pulse glow */
+    @keyframes subtle-pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.03); }
+    }
+    .animate-warm-pulse {
+      animation: subtle-pulse 3.5s infinite ease-in-out;
+    }
+
+    .star-rating-btn:hover svg {
+      transform: scale(1.15) rotate(5deg);
+      filter: drop-shadow(0 4px 10px rgba(217, 138, 44, 0.45));
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden">
+<!-- Ambient Warm Organic Glows -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-[600px] h-[600px] rounded-full bg-[#f8e0a8] opacity-35 blur-[120px]"></div>
+<div class="absolute top-1/3 -right-48 w-[500px] h-[500px] rounded-full bg-[#c8e8d0] opacity-40 blur-[130px]"></div>
+<div class="absolute -bottom-24 left-1/3 w-[650px] h-[650px] rounded-full bg-[#fce9e1] opacity-30 blur-[140px]"></div>
+</div>
+<!-- Shared TopNavBar in Terra Light -->
+<header class="w-full bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/60 shadow-[0_2px_8px_rgba(46,50,48,0.04)] sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-4 md:px-8 h-20 max-w-7xl mx-auto">
+<!-- Brand Logo -->
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-primary text-white flex items-center justify-center shadow-[0_3px_0_0_#33593e]">
+<span class="material-symbols-outlined text-2xl font-bold" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<span class="font-headline font-bold text-2xl tracking-tight text-primary">Pookalam.io</span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 font-label">
+<a class="text-primary font-extrabold border-b-2 border-primary pb-1 tracking-wide" href="#">Arena</a>
+<a class="text-on-surface-variant hover:text-primary font-semibold transition-colors duration-150" href="#">Lobbies</a>
+<a class="text-on-surface-variant hover:text-primary font-semibold transition-colors duration-150" href="#">Leaderboard</a>
+<a class="text-on-surface-variant hover:text-primary font-semibold transition-colors duration-150" href="#">How to Play</a>
+</nav>
+<!-- Trailing Controls & Room Action -->
+<div class="flex items-center gap-3">
+<!-- Room Code Pill -->
+<div class="hidden sm:flex items-center gap-2 bg-surface-container px-3.5 py-1.5 rounded-full border border-outline-variant/80">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label text-xs uppercase tracking-wider font-extrabold text-on-surface-variant">Room #POOKALAM</span>
+</div>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-surface-container hover:text-primary transition-colors" title="Volume">
+<span class="material-symbols-outlined text-xl">volume_up</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-surface-container hover:text-primary transition-colors" title="Toggle Fullscreen">
+<span class="material-symbols-outlined text-xl">fullscreen</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-surface-container hover:text-primary transition-colors" title="Settings">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+</div>
+<!-- Primary Action Button -->
+<button class="hidden lg:inline-flex items-center justify-center bg-primary hover:bg-[#3f6d4d] text-white font-label font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl terra-btn-primary border border-[#5d946e]">
+  Create Room
+</button>
+</div>
+</div>
+</header>
+<!-- Main Game Canvas Container -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-6 relative z-10 flex flex-col gap-6">
+<!-- Top Bar: Judging Progress & Round Timer -->
+<div class="w-full bg-surface-container-lowest rounded-2xl border border-outline-variant/80 p-4 md:p-5 flex flex-wrap items-center justify-between gap-4 shadow-[0_4px_16px_rgba(46,50,48,0.05)]">
+<!-- Progress Indicator -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary-fixed/60 border border-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label text-[11px] uppercase tracking-wider text-[#943a1a] font-extrabold px-2 py-0.5 rounded-md bg-[#fce9e1] border border-[#f5cbbe]">Phase 3: Peer Review</span>
+<span class="font-label text-xs text-on-surface-variant font-semibold">Round 2 of 3</span>
+</div>
+<h2 class="font-headline font-bold text-xl text-on-surface flex items-center gap-2 mt-0.5">
+  Judging <span class="text-primary font-extrabold">3 of 6</span> Creations
+</h2>
+</div>
+</div>
+<!-- Segmented Player Progress Bar -->
+<div class="hidden md:flex items-center gap-2">
+<div class="w-8 h-2.5 rounded-full bg-primary"></div>
+<div class="w-8 h-2.5 rounded-full bg-primary"></div>
+<div class="w-10 h-3 rounded-full bg-ochre border-2 border-primary shadow-[0_0_8px_rgba(217,138,44,0.35)]"></div>
+<div class="w-8 h-2.5 rounded-full bg-surface-container-highest"></div>
+<div class="w-8 h-2.5 rounded-full bg-surface-container-highest"></div>
+<div class="w-8 h-2.5 rounded-full bg-surface-container-highest"></div>
+</div>
+<!-- Animated 20s Countdown Gauge -->
+<div class="flex items-center gap-3 bg-surface-container-low px-4 py-2 rounded-xl border border-outline-variant/70">
+<div class="relative w-11 h-11 flex items-center justify-center">
+<svg class="w-11 h-11 transform -rotate-90" viewbox="0 0 44 44">
+<circle class="text-surface-container-highest fill-none" cx="22" cy="22" r="18" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-ochre fill-none transition-all duration-1000" cx="22" cy="22" r="18" stroke="currentColor" stroke-dasharray="113.1" stroke-dashoffset="34" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="absolute font-headline font-bold text-xs text-ochre">14s</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label text-[10px] uppercase tracking-wider text-on-surface-variant font-bold">Review Timer</span>
+<span class="font-label text-xs text-on-surface font-extrabold">Hurry! Voting Closes</span>
+</div>
+</div>
+</div>
+<!-- Header: Current Artist & Creation Title -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-surface-container-lowest via-surface-container to-surface-container-low border border-outline-variant/80 rounded-2xl p-5 shadow-[0_2px_12px_rgba(46,50,48,0.04)]">
+<div class="flex items-center gap-4">
+<!-- Artist Avatar Pill with Warm Leader Frame -->
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl border-2 border-primary p-0.5 bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<div class="w-full h-full rounded-[14px] bg-gradient-to-br from-tertiary to-ochre flex items-center justify-center text-white font-headline text-xl font-bold">
+  A
+</div>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-ochre text-white rounded-full p-1 border-2 border-white shadow-sm" title="Room Leader">
+<span class="material-symbols-outlined text-xs block font-bold" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h1 class="font-headline text-2xl text-on-surface font-bold tracking-tight">
+  Rate <span class="text-primary font-extrabold">Ananya's</span> Floral Carpet
+</h1>
+<span class="inline-flex items-center gap-1 bg-primary-fixed/50 text-primary px-3 py-0.5 rounded-full border border-primary/30 text-xs font-label font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+  Submitted in 42s
+</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant mt-1">
+Pattern Challenge: <span class="text-on-surface font-bold">Tri-Chakra Athapookalam</span> • Round Points Pool: <span class="text-clay font-extrabold font-headline">+850 XP</span>
+</p>
+</div>
+</div>
+<!-- Palette Helper Tag -->
+<div class="flex items-center gap-2 self-start md:self-auto">
+<div class="bg-surface-container-lowest px-3.5 py-1.5 rounded-xl border border-outline-variant/70 flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-clay text-lg" style="font-variation-settings: 'FILL' 1;">palette</span>
+<span class="font-label text-xs text-on-surface font-bold">Marigold, Rose &amp; Saffron</span>
+</div>
+</div>
+</div>
+<!-- Centerpiece Comparison Stage -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative">
+<!-- Interactive Comparison Toolbar Floating Header -->
+<div class="lg:col-span-12 flex justify-center -mb-2 z-20">
+<div class="bg-surface-container-lowest px-2 py-1.5 rounded-2xl border border-outline-variant/80 shadow-[0_4px_16px_rgba(46,50,48,0.08)] flex items-center gap-1">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-primary text-white font-label text-xs uppercase tracking-wider font-extrabold transition-all shadow-sm">
+<span class="material-symbols-outlined text-base">view_column</span>
+Side-by-Side
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-on-surface-variant hover:text-on-surface font-label text-xs uppercase tracking-wider font-bold transition-all hover:bg-surface-container">
+<span class="material-symbols-outlined text-base">compare</span>
+Split Slider
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-on-surface-variant hover:text-on-surface font-label text-xs uppercase tracking-wider font-bold transition-all hover:bg-surface-container">
+<span class="material-symbols-outlined text-base">difference</span>
+Overlay Diff
+</button>
+</div>
+</div>
+<!-- Left Column: Target Masterpiece (Reference) -->
+<div class="lg:col-span-5 flex flex-col items-center">
+<div class="w-full max-w-[420px] bg-surface-container-lowest rounded-3xl border border-outline-variant/80 p-5 relative shadow-[0_8px_24px_rgba(46,50,48,0.06)] flex flex-col items-center group">
+<!-- Masterpiece Label Badge -->
+<div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-ochre text-white px-4 py-1 rounded-full font-label text-xs uppercase font-extrabold shadow-[0_2px_6px_rgba(217,138,44,0.35)] flex items-center gap-1.5 z-20 border border-white/60">
+<span class="material-symbols-outlined text-sm font-black" style="font-variation-settings: 'FILL' 1;">stars</span>
+Target Masterpiece
+</div>
+<!-- Circular Canvas Frame (Warm Terracotta Filigree Effect) -->
+<div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2.5 mt-2 bg-gradient-to-b from-ochre via-[#e6a147] to-clay shadow-[0_6px_24px_rgba(217,138,44,0.2)] flex items-center justify-center">
+<!-- Inner Ring -->
+<div class="w-full h-full rounded-full border-4 border-surface-container-lowest overflow-hidden relative shadow-inner bg-surface-container-high">
+<img class="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition-transform duration-500" data-alt="A perfectly symmetrical traditional Kerala Athapookalam floral carpet artwork arranged on a deep midnight temple floor. Bright vibrant petals of yellow marigold, orange saffron, deep crimson rose, and crisp white jasmine petals form intricate concentric sacred geometric rings. Illuminated by the warm, golden glow of traditional brass oil lamps, highlighting velvety organic flower petal textures and crisp radial symmetry in high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwYWjDpJtAmb0Sk7F50y3CjBKCMB5_1tAILF-YsMtoKW1vSyYIpmoXVKapjALbtV8Aoxy9zhRtaVhKE89R3-UQAj2t8gqigPwzlFqdy0emV5fO6nxzwmfM1uGvtoMrdTpcALWndHtKgWW4vHViHwIWT_d7F1T1UydRm9wvMgqECUhimNyrC55TiujFuVI07SEuZp7AVZyDSxvqlbVj9xhcTFy8DxsmlhCfgomtQ8vHNzg6rn70ortlAQ"/>
+<div class="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.35)] pointer-events-none"></div>
+</div>
+<!-- Decorative Dial Markers -->
+<div class="absolute top-1 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white border-2 border-ochre shadow"></div>
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white border-2 border-ochre shadow"></div>
+<div class="absolute left-1 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border-2 border-ochre shadow"></div>
+<div class="absolute right-1 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border-2 border-ochre shadow"></div>
+</div>
+<!-- Target Specs Details -->
+<div class="w-full mt-4 pt-3 border-t border-outline-variant/60 flex items-center justify-between text-on-surface-variant font-label text-xs">
+<span class="flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-base text-primary">hub</span>
+12 Concentric Rings
+</span>
+<span class="flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-base text-clay">flare</span>
+Ideal Symmetry: 100%
+</span>
+</div>
+</div>
+</div>
+<!-- Center: Warm Terra "VS" Emblem -->
+<div class="lg:col-span-2 flex flex-col items-center justify-center relative py-2">
+<div class="absolute w-24 h-24 rounded-full bg-clay/15 filter blur-xl animate-warm-pulse pointer-events-none"></div>
+<div class="relative flex flex-col items-center">
+<!-- Top SVG Flora Accent -->
+<svg class="w-7 h-7 text-ochre animate-spin" fill="currentColor" style="animation-duration: 12s;" viewbox="0 0 24 24">
+<path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"></path>
+</svg>
+<!-- Chunky Terra VS Badge -->
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-clay via-[#b54a24] to-[#873315] border-2 border-[#ffdad8] shadow-[0_5px_0_0_#62240e] flex items-center justify-center my-1.5 z-10 transform -rotate-3 hover:rotate-0 transition-transform">
+<span class="font-headline text-2xl font-black text-white italic tracking-tight drop-shadow-md">VS</span>
+</div>
+<!-- Bottom SVG Flora Accent -->
+<svg class="w-5 h-5 text-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L13.8 8.2L20 10L13.8 11.8L12 18L10.2 11.8L4 10L10.2 8.2L12 2Z"></path>
+</svg>
+</div>
+</div>
+<!-- Right Column: Ananya's Recreation -->
+<div class="lg:col-span-5 flex flex-col items-center">
+<div class="w-full max-w-[420px] bg-surface-container-lowest rounded-3xl border border-outline-variant/80 p-5 relative shadow-[0_8px_24px_rgba(46,50,48,0.06)] flex flex-col items-center group">
+<!-- Player Recreation Badge -->
+<div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full font-label text-xs uppercase font-extrabold shadow-[0_2px_6px_rgba(74,124,89,0.35)] flex items-center gap-1.5 z-20 border border-white/60">
+<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">brush</span>
+Ananya's Recreation
+</div>
+<!-- Circular Canvas Frame (Sage/Forest Green Floral Ring) -->
+<div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2.5 mt-2 bg-gradient-to-b from-primary-fixed-dim via-primary to-[#33593e] shadow-[0_6px_24px_rgba(74,124,89,0.25)] flex items-center justify-center">
+<!-- Inner Ring -->
+<div class="w-full h-full rounded-full border-4 border-surface-container-lowest overflow-hidden relative shadow-inner bg-surface-container-high">
+<img class="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition-transform duration-500" data-alt="A hand-drawn digital recreation of a Kerala Pookalam floral carpet game piece, composed of vibrant orange marigold, bright yellow petals, and contrasting green floral leaf accents. The petals show energetic stylized brush strokes and dynamic geometric floral layering on a dark indigo gaming table canvas. The recreation displays playful artistic personality, organic charm, and vivid party game visual arcade lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ujjBZGDfr6_76qAuliaFRVkgY8PzHgUz45aZnAoGN5J4jVYcDI_4PWmBLNIG19N1D5JDGEwWs-W-mfl9xSOXXrYF2vAkNRNH7_YLWr4j4DbUm9jQSrV7Bt1o-4mZ6cWYTh_g2zQX-KyX6lMlok2cWPzqvUWK5gGS9I2y1MOGWJdV0mEgekGvEfDdbLcHsoyeA7HoIjQv2D2gu9Z_xBaBUFVmg1YYErzwpPsDr9aArijb1L3A5gg_iA"/>
+<div class="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.35)] pointer-events-none"></div>
+</div>
+<!-- Petal Count Overlay Pill -->
+<div class="absolute bottom-3 bg-surface-container-lowest/95 backdrop-blur px-3 py-1 rounded-full border border-outline-variant/80 flex items-center gap-1.5 shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label text-xs font-bold text-on-surface">348 Petals Placed</span>
+</div>
+</div>
+<!-- Player Accuracy Metrics Chips -->
+<div class="w-full mt-4 pt-3 border-t border-outline-variant/60 flex items-center justify-between font-label text-xs">
+<span class="text-on-surface-variant flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-base text-ochre">speed</span>
+Speed: 42s
+</span>
+<span class="text-on-surface-variant flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-base text-primary">check_circle</span>
+Petal Density: 94%
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Engaging Rating Console (Terra Interactive Deck) -->
+<div class="w-full bg-surface-container-lowest rounded-3xl border border-outline-variant/80 p-5 md:p-7 shadow-[0_8px_30px_rgba(46,50,48,0.06)] flex flex-col gap-5 relative overflow-hidden">
+<!-- Top Criteria Strip -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant/60 pb-4">
+<div>
+<h3 class="font-headline font-bold text-xl text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">how_to_vote</span>
+How accurately did they capture the pattern?
+</h3>
+<p class="font-body text-sm text-on-surface-variant">Select stars to score. Assess petal density, radial balance, and color fidelity.</p>
+</div>
+<!-- Evaluation Criteria Cues -->
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-xl bg-surface-container border border-outline-variant/70 font-label text-xs font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">tune</span> Symmetry
+</span>
+<span class="px-3 py-1 rounded-xl bg-surface-container border border-outline-variant/70 font-label text-xs font-bold text-clay flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">palette</span> Colors
+</span>
+<span class="px-3 py-1 rounded-xl bg-surface-container border border-outline-variant/70 font-label text-xs font-bold text-ochre flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">local_florist</span> Density
+</span>
+</div>
+</div>
+<!-- 5-Star Interactive Rating Bar -->
+<div class="flex flex-col items-center justify-center gap-3 py-2">
+<!-- Interactive Star SVGs Row -->
+<div class="flex items-center gap-3 sm:gap-6" id="star-container">
+<!-- Star 1 -->
+<button class="star-rating-btn group p-2 rounded-2xl transition-transform active:scale-90 flex flex-col items-center" data-caption="1 - Needs More Petals" data-score="1">
+<svg class="w-11 h-11 sm:w-14 sm:h-14 text-ochre drop-shadow-[0_2px_4px_rgba(217,138,44,0.3)] transition-all" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+</svg>
+</button>
+<!-- Star 2 -->
+<button class="star-rating-btn group p-2 rounded-2xl transition-transform active:scale-90 flex flex-col items-center" data-caption="2 - Nice Try" data-score="2">
+<svg class="w-11 h-11 sm:w-14 sm:h-14 text-ochre drop-shadow-[0_2px_4px_rgba(217,138,44,0.3)] transition-all" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+</svg>
+</button>
+<!-- Star 3 -->
+<button class="star-rating-btn group p-2 rounded-2xl transition-transform active:scale-90 flex flex-col items-center" data-caption="3 - Pretty Rangoli" data-score="3">
+<svg class="w-11 h-11 sm:w-14 sm:h-14 text-ochre drop-shadow-[0_2px_4px_rgba(217,138,44,0.3)] transition-all" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+</svg>
+</button>
+<!-- Star 4 (Active Selected State) -->
+<button class="star-rating-btn group p-2 rounded-2xl transition-transform active:scale-90 flex flex-col items-center" data-caption="4 - Floral Master" data-score="4">
+<svg class="w-11 h-11 sm:w-14 sm:h-14 text-ochre drop-shadow-[0_4px_12px_rgba(217,138,44,0.45)] transition-all scale-110" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+</svg>
+</button>
+<!-- Star 5 -->
+<button class="star-rating-btn group p-2 rounded-2xl transition-transform active:scale-90 flex flex-col items-center" data-caption="5 - Onam Legend!" data-score="5">
+<svg class="w-11 h-11 sm:w-14 sm:h-14 text-surface-container-highest transition-all group-hover:text-ochre" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+</svg>
+</button>
+</div>
+<!-- Dynamic Descriptive Caption Badge -->
+<div class="px-5 py-1.5 rounded-full bg-surface-container border border-outline-variant/80 shadow-sm">
+<span class="font-headline text-base text-primary font-bold tracking-wide flex items-center gap-2" id="rating-label">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+4 - Floral Master!
+</span>
+</div>
+</div>
+<!-- Quick Celebratory Reaction Chips -->
+<div class="flex flex-wrap items-center justify-center gap-2 pt-1">
+<span class="text-on-surface-variant font-label text-xs font-bold mr-1">Bonus Kudos:</span>
+<!-- Reaction 1 -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/70 text-xs font-bold transition-all terra-chip-btn">
+<svg class="w-4 h-4 text-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z"></path>
+</svg>
+<span>Great Symmetry!</span>
+</button>
+<!-- Reaction 2 (Selected Accent) -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#fce9e1] hover:bg-[#fad8cb] text-[#943a1a] border-2 border-clay text-xs font-extrabold transition-all shadow-[0_2px_8px_rgba(200,90,50,0.18)]">
+<svg class="w-4 h-4 text-clay" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.28 19.64 10.59 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path>
+</svg>
+<span>Color Match!</span>
+</button>
+<!-- Reaction 3 -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/70 text-xs font-bold transition-all terra-chip-btn">
+<svg class="w-4 h-4 text-ochre" fill="currentColor" viewbox="0 0 24 24">
+<path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.71a1 1 0 0 0-1.41 0l-9.5 9.5 1.41 1.41 9.5-9.5a1 1 0 0 0 0-1.41z"></path>
+</svg>
+<span>Artistic Flair!</span>
+</button>
+<!-- Reaction 4 -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/70 text-xs font-bold transition-all terra-chip-btn">
+<svg class="w-4 h-4 text-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13.01 3h1l-1 7h3.5c.49 0 .78.36.63.75l-6.14 10.25z"></path>
+</svg>
+<span>Super Fast!</span>
+</button>
+</div>
+<!-- Primary Action: Warm Terracotta Lock In Vote Button -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-1">
+<button class="w-full sm:w-auto min-w-[300px] bg-clay hover:bg-[#b84e27] text-white font-headline text-lg uppercase px-8 py-3.5 rounded-2xl font-bold tracking-wider terra-btn-terracotta border border-[#e8815b] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined font-black text-2xl" style="font-variation-settings: 'FILL' 1;">check</span>
+Lock In Vote
+</button>
+</div>
+<!-- Self-Rating Callout -->
+<div class="mt-1 bg-surface-container/80 border border-outline-variant/70 rounded-xl p-3.5 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">info</span>
+</span>
+<div>
+<span class="font-label text-[10px] uppercase font-bold tracking-wider text-on-surface-variant">Self-Review Preview:</span>
+<p class="font-body text-xs text-on-surface italic">
+  When rating your own creation: <span class="text-primary font-bold">"This is yours! Sit back, breathe, and enjoy the praise."</span> (Voting disabled)
+</p>
+</div>
+</div>
+<span class="hidden sm:inline-block font-label text-xs font-bold text-on-surface-variant bg-surface-container-highest px-2.5 py-1 rounded-md">Auto-Skip</span>
+</div>
+</div>
+</main>
+<!-- Shared Footer in Terra Light -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/70 mt-12">
+<div class="w-full py-6 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<!-- Brand & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="font-headline text-lg font-bold text-primary">Pookalam.io</span>
+<span class="hidden sm:inline text-outline-variant">|</span>
+<p class="font-body text-xs text-on-surface-variant">
+© 2025 Pookalam.io. Real-time Onam Floral Carpet Arena.
+</p>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap items-center justify-center gap-6">
+<a class="font-label text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Game Rules</a>
+<a class="font-label text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Flower Lore</a>
+<a class="font-label text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Host Screen</a>
+<a class="font-label text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Community Discord</a>
+<a class="font-label text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+<!-- Interactive Star Rating Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const starBtns = document.querySelectorAll('.star-rating-btn');
+      const ratingLabel = document.getElementById('rating-label');
+
+      starBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const score = parseInt(btn.getAttribute('data-score'));
+          const caption = btn.getAttribute('data-caption');
+
+          ratingLabel.innerHTML = `
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+            ${caption}!
+          `;
+
+          starBtns.forEach(otherBtn => {
+            const otherScore = parseInt(otherBtn.getAttribute('data-score'));
+            const svg = otherBtn.querySelector('svg');
+
+            if (otherScore <= score) {
+              svg.classList.remove('text-surface-container-highest');
+              svg.classList.add('text-ochre');
+              if (otherScore === score) {
+                svg.classList.add('scale-110', 'drop-shadow-[0_4px_12px_rgba(217,138,44,0.45)]');
+              } else {
+                svg.classList.remove('scale-110', 'drop-shadow-[0_4px_12px_rgba(217,138,44,0.45)]');
+              }
+            } else {
+              svg.classList.remove('text-ochre', 'scale-110', 'drop-shadow-[0_4px_12px_rgba(217,138,44,0.45)]');
+              svg.classList.add('text-surface-container-highest');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body></html>

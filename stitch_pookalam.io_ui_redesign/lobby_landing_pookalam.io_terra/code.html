@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pookalam.io — The Real-Time Onam Floral Carpet Arcade</title>
+<!-- Fonts: Literata (Headlines/Display), Nunito Sans (Body/Label) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,500..800;1,7..72,500..700&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed-dim": "#8ecf9e",
+          "on-tertiary-container": "#554020",
+          "on-secondary-fixed": "#1e1a13",
+          "primary": "#4a7c59",
+          "surface-container-lowest": "#ffffff",
+          "surface-tint": "#4a7c59",
+          "inverse-surface": "#2e3230",
+          "surface-container-high": "#eae6de",
+          "secondary-container": "#f0e8db",
+          "tertiary-container": "#c4a66a",
+          "outline-variant": "#c4c8bc",
+          "tertiary-fixed-dim": "#dcc48e",
+          "on-primary-fixed-variant": "#2a6038",
+          "secondary-fixed-dim": "#d4ccbf",
+          "tertiary": "#705c30",
+          "surface": "#faf6f0",
+          "inverse-on-surface": "#f5f0e8",
+          "on-surface": "#2e3230",
+          "on-primary-fixed": "#002110",
+          "inverse-primary": "#8ecf9e",
+          "on-error-container": "#690005",
+          "on-background": "#2e3230",
+          "on-surface-variant": "#4a4e4a",
+          "surface-container": "#f0ece4",
+          "surface-container-highest": "#e4e0d8",
+          "surface-container-low": "#f5f1ea",
+          "error": "#b83230",
+          "tertiary-fixed": "#f8e0a8",
+          "secondary": "#6b6358",
+          "error-container": "#ffdad8",
+          "surface-variant": "#e4e0d8",
+          "on-secondary-fixed-variant": "#4a4538",
+          "outline": "#74796e",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#554020",
+          "secondary-fixed": "#f0e8db",
+          "on-primary": "#ffffff",
+          "on-error": "#ffffff",
+          "on-secondary-container": "#5e5548",
+          "on-primary-container": "#d8f0de",
+          "surface-dim": "#dbd7cf",
+          "background": "#faf6f0",
+          "primary-container": "#78a886",
+          "on-tertiary-fixed": "#221a05",
+          "primary-fixed": "#c8e8d0",
+          "on-tertiary": "#ffffff",
+          "surface-bright": "#faf6f0",
+          "terracotta": "#c86d51",
+          "terracotta-container": "#faebe6",
+          "amber-clay": "#d9822b"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.5rem",
+          "lg": "1rem",
+          "xl": "1.25rem",
+          "2xl": "1.5rem",
+          "full": "9999px"
+        },
+        "fontFamily": {
+          "headline": ["Literata", "serif"],
+          "display": ["Literata", "serif"],
+          "body": ["Nunito Sans", "sans-serif"],
+          "label": ["Nunito Sans", "sans-serif"],
+          "numeric": ["Space Grotesk", "monospace"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Soft Terra tactile elevation & buttons */
+    .btn-terra-primary {
+      background-color: #4a7c59;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(74, 124, 89, 0.25), 0 1px 2px rgba(74, 124, 89, 0.15);
+      transition: all 0.15s ease-out;
+    }
+    .btn-terra-primary:hover {
+      background-color: #3f6b4d;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(74, 124, 89, 0.3);
+    }
+    .btn-terra-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 6px rgba(74, 124, 89, 0.2);
+    }
+
+    .btn-terra-secondary {
+      background-color: #f0ece4;
+      color: #4a4e4a;
+      box-shadow: 0 1px 3px rgba(46, 50, 48, 0.08);
+      transition: all 0.15s ease-out;
+    }
+    .btn-terra-secondary:hover {
+      background-color: #eae6de;
+      color: #2e3230;
+      transform: translateY(-2px);
+    }
+    .btn-terra-secondary:active {
+      transform: translateY(1px);
+    }
+
+    .card-terra-clay {
+      box-shadow: 0 6px 20px -4px rgba(70, 60, 40, 0.07), 0 2px 6px -2px rgba(70, 60, 40, 0.04);
+      transition: all 0.2s ease;
+    }
+    .card-terra-clay:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -6px rgba(74, 124, 89, 0.14), 0 4px 10px -2px rgba(70, 60, 40, 0.06);
+    }
+
+    /* Ambient slow rotation */
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes spin-reverse-slow {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    .animate-mandala-slow {
+      animation: spin-slow 200s linear infinite;
+    }
+    .animate-mandala-reverse {
+      animation: spin-reverse-slow 160s linear infinite;
+    }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen relative overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ========================================================================= -->
+<!-- AMBIENT GEOMETRIC MANDALA BACKGROUND OVERLAYS (Terra Warm/Earthy) -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
+<!-- Warm organic back-glows -->
+<div class="absolute w-[650px] h-[650px] rounded-full bg-primary-fixed/40 blur-[130px] -top-36 -left-36"></div>
+<div class="absolute w-[700px] h-[700px] rounded-full bg-secondary-container/70 blur-[150px] -bottom-48 -right-36"></div>
+<div class="absolute w-[450px] h-[450px] rounded-full bg-terracotta-container/80 blur-[110px] top-1/3 left-1/2 -translate-x-1/2"></div>
+<!-- Subtle botanical mandala geometry -->
+<svg class="absolute w-[1100px] h-[1100px] opacity-[0.06] animate-mandala-slow text-primary" fill="none" stroke="currentColor" viewbox="0 0 800 800">
+<circle cx="400" cy="400" r="380" stroke-dasharray="6 6" stroke-width="1.5"></circle>
+<circle cx="400" cy="400" r="320" stroke-width="1.5"></circle>
+<circle cx="400" cy="400" r="260" stroke-dasharray="4 4" stroke-width="2"></circle>
+<circle cx="400" cy="400" r="190" stroke-width="1"></circle>
+<circle cx="400" cy="400" r="120" stroke-width="2"></circle>
+<circle cx="400" cy="400" r="60" stroke-width="1.5"></circle>
+<g stroke-width="1.5">
+<path d="M400,20 C460,180 460,240 400,400 C340,240 340,180 400,20 Z"></path>
+<path d="M400,780 C460,620 460,560 400,400 C340,560 340,620 400,780 Z"></path>
+<path d="M20,400 C180,460 240,460 400,400 C240,340 180,340 20,400 Z"></path>
+<path d="M780,400 C620,460 560,460 400,400 C560,340 620,340 780,400 Z"></path>
+<path d="M131,131 C272,203 314,245 400,400 C245,314 203,272 131,131 Z"></path>
+<path d="M669,669 C528,597 486,555 400,400 C555,486 597,528 669,669 Z"></path>
+<path d="M669,131 C597,272 555,314 400,400 C486,245 528,203 669,131 Z"></path>
+<path d="M131,669 C203,528 245,486 400,400 C314,555 272,597 131,669 Z"></path>
+</g>
+</svg>
+<svg class="absolute w-[820px] h-[820px] opacity-[0.04] animate-mandala-reverse text-tertiary" fill="none" stroke="currentColor" viewbox="0 0 800 800">
+<polygon points="400,80 720,400 400,720 80,400" stroke-width="1.5"></polygon>
+<polygon points="400,140 660,400 400,660 140,400" stroke-dasharray="6 6" stroke-width="1"></polygon>
+<polygon points="173,173 627,173 627,627 173,627" stroke-width="1.5"></polygon>
+</svg>
+</div>
+<!-- ========================================================================= -->
+<!-- TOP APP BAR -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-highest shadow-[0_2px_8px_rgba(46,50,48,0.04)]">
+<div class="flex justify-between items-center w-full px-4 md:px-8 h-20 max-w-7xl mx-auto">
+<!-- Brand Logo + Petal Mark -->
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="w-11 h-11 rounded-2xl bg-primary text-white flex items-center justify-center shadow-md shadow-primary/20 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 32 32">
+<path d="M16 2C16.8 6.5 19.5 9.2 24 10C19.5 10.8 16.8 13.5 16 18C15.2 13.5 12.5 10.8 8 10C12.5 9.2 15.2 6.5 16 2Z"></path>
+<path d="M16 14C16.8 18.5 19.5 21.2 24 22C19.5 22.8 16.8 25.5 16 30C15.2 25.5 12.5 22.8 8 22C12.5 21.2 15.2 18.5 16 14Z" opacity="0.85"></path>
+<circle class="fill-tertiary-fixed" cx="16" cy="16" r="3.5"></circle>
+</svg>
+</div>
+<div>
+<span class="font-headline text-2xl font-bold tracking-tight text-on-surface">
+          Pookalam<span class="text-primary">.io</span>
+</span>
+<span class="hidden sm:inline-block ml-2.5 text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-secondary-container text-secondary border border-outline-variant/50">
+          Terra Edition
+        </span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold transition-colors" href="#arena">Arena</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#lobbies">Lobbies</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#leaderboard">Leaderboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#rules">How to Play</a>
+</nav>
+<!-- Trailing Live Status & Utilities -->
+<div class="flex items-center gap-3">
+<!-- Online Player Count Chip -->
+<div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/60 shadow-sm">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span class="font-label text-xs text-on-surface-variant font-semibold">1,420 Florists Online</span>
+</div>
+<!-- Room Code Badge -->
+<div class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container border border-outline-variant/60">
+<span class="font-label text-xs text-on-surface-variant uppercase font-medium">Default:</span>
+<span class="font-numeric text-xs font-bold text-primary">#POOKALAM</span>
+</div>
+<!-- Utility Icon Actions -->
+<div class="flex items-center gap-1">
+<button aria-label="Toggle Sound" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors active:scale-95" id="btn-sound" title="Toggle Sound">
+<span class="material-symbols-outlined text-[20px]" data-icon="volume_up">volume_up</span>
+</button>
+<button aria-label="Toggle Fullscreen" class="hidden sm:flex w-10 h-10 rounded-xl items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors active:scale-95" id="btn-fullscreen" title="Toggle Fullscreen">
+<span class="material-symbols-outlined text-[20px]" data-icon="fullscreen">fullscreen</span>
+</button>
+<button aria-label="Settings" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors active:scale-95" id="btn-settings" title="Settings">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- MAIN ARENA CANVAS / LOBBY HERO -->
+<!-- ========================================================================= -->
+<main class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-10 pb-20">
+<!-- Hero Banner Title -->
+<div class="text-center max-w-3xl mx-auto mb-12">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-secondary-container border border-outline-variant/60 mb-4 shadow-sm">
+<svg class="w-3.5 h-3.5 text-terracotta" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"></path>
+</svg>
+<span class="font-label text-xs uppercase font-bold text-tertiary tracking-wider">
+        The Onam Grand Championship 2026
+      </span>
+<svg class="w-3.5 h-3.5 text-terracotta" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"></path>
+</svg>
+</div>
+<h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-on-surface font-bold tracking-tight mb-3">
+      POOKALAM<span class="text-primary">.IO</span>
+</h1>
+<p class="font-headline text-lg sm:text-xl text-primary font-medium italic">
+      The Real-Time Onam Floral Carpet Arcade
+    </p>
+<p class="font-body text-sm sm:text-base text-on-surface-variant max-w-xl mx-auto mt-2 leading-relaxed">
+      Gather your tribe, pick real flower petals, and weave concentric floral mandalas under pressure. Kahoot speed meets traditional Kerala artistry!
+    </p>
+</div>
+<!-- ========================================================================= -->
+<!-- BENTO GRID SECTION: AVATAR CUSTOMIZER + CREATE & JOIN DOORS -->
+<!-- ========================================================================= -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT BENTO COL: Tactile Avatar & Flower Persona Customizer (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-2xl border border-outline-variant/80 p-6 md:p-8 card-terra-clay relative overflow-hidden">
+<!-- Header badge -->
+<div class="flex items-center justify-between pb-4 border-b border-surface-container-highest">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="palette">palette</span>
+<h2 class="font-headline text-xl font-bold text-on-surface">Your Florist Persona</h2>
+</div>
+<span class="font-label text-xs uppercase font-bold text-tertiary bg-secondary-container px-3 py-1 rounded-full border border-outline-variant/60">
+          Step 1 of 2
+        </span>
+</div>
+<!-- Interactive Avatar Preview Card -->
+<div class="my-6 p-6 rounded-2xl bg-surface-container-low border border-outline-variant/70 flex flex-col items-center text-center relative group">
+<!-- Avatar Icon Ring -->
+<div class="relative w-28 h-28 rounded-full bg-surface-container-lowest border-2 border-primary/40 flex items-center justify-center shadow-md shadow-primary/10 transition-all duration-300 group-hover:scale-105" id="avatar-halo">
+<div class="text-primary w-16 h-16 flex items-center justify-center" id="active-avatar-icon">
+<!-- Kathakali Mask SVG (Default) -->
+<svg class="w-14 h-14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 48 48">
+<path d="M24 4C14 4 10 14 10 24C10 34 16 44 24 44C32 44 38 34 38 24C38 14 34 4 24 4Z" fill="#eae6de"></path>
+<circle cx="24" cy="14" fill="#c86d51" r="3"></circle>
+<path d="M16 22C19 25 29 25 32 22"></path>
+<path d="M18 30C21 34 27 34 30 30" stroke="#d9822b"></path>
+<path d="M14 18L18 20"></path>
+<path d="M34 18L30 20"></path>
+<path d="M24 24V28"></path>
+<path d="M8 18C12 18 12 10 24 6C36 10 36 18 40 18" stroke="#4a7c59"></path>
+</svg>
+</div>
+<!-- Floating Rank Badge -->
+<span class="absolute -bottom-2 bg-primary text-white font-numeric text-[11px] font-bold px-3 py-0.5 rounded-full shadow-sm">
+            RANK 12
+          </span>
+</div>
+<!-- Florist Nickname Dynamic Display -->
+<h3 class="font-headline text-2xl font-bold text-on-surface mt-4" id="display-florist-name">
+          Marigold Maestro
+        </h3>
+<p class="font-body text-xs text-on-surface-variant mt-0.5" id="display-theme-title">
+          Master of Chethi &amp; Thumba Petals
+        </p>
+</div>
+<!-- Symbol Selector Carousel -->
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase font-bold text-on-surface-variant">
+          Pick Your Onam Mascot Emblem
+        </label>
+<div class="grid grid-cols-6 gap-2" id="mascot-selector">
+<!-- 1. Kathakali Mask -->
+<button class="mascot-btn active p-2.5 rounded-xl bg-primary text-white border border-primary flex flex-col items-center justify-center transition-all hover:-translate-y-0.5 shadow-sm" data-symbol="kathakali" data-theme="Chethi &amp; Thumba Petals" data-title="Marigold Maestro" title="Kathakali Mask" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M8 10C10 12 14 12 16 10"></path>
+<path d="M9 15C11 17 13 17 15 15"></path>
+<circle cx="12" cy="7" fill="currentColor" r="1.5"></circle>
+</svg>
+</button>
+<!-- 2. Aanapranthan / Royal Elephant -->
+<button class="mascot-btn p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/70 text-on-surface-variant hover:text-primary hover:border-primary/50 flex flex-col items-center justify-center transition-all hover:-translate-y-0.5" data-symbol="elephant" data-theme="Nettipattam Royal Gold" data-title="Tusked Titan" title="Caparisoned Elephant" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 14C4 8 8 5 14 5C20 5 21 10 21 14V19H17V15C17 14 15 14 14 15V19H10V15C10 14 8 14 7 15V19H4V14Z"></path>
+<path d="M4 11C2 11 2 15 2 17"></path>
+<circle cx="17" cy="9" fill="currentColor" r="1"></circle>
+</svg>
+</button>
+<!-- 3. Snake Boat -->
+<button class="mascot-btn p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/70 text-on-surface-variant hover:text-primary hover:border-primary/50 flex flex-col items-center justify-center transition-all hover:-translate-y-0.5" data-symbol="boat" data-theme="Pampa River Lotus" data-title="Boat Race Captain" title="Snake Boat" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M2 15C7 18 17 18 22 11C22 11 21 16 18 18C12 21 5 19 2 15Z"></path>
+<path d="M21 7L22 11"></path>
+<line x1="7" x2="6" y1="12" y2="17"></line>
+<line x1="11" x2="10" y1="12" y2="17"></line>
+<line x1="15" x2="14" y1="12" y2="17"></line>
+</svg>
+</button>
+<!-- 4. Sacred Peacock -->
+<button class="mascot-btn p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/70 text-on-surface-variant hover:text-primary hover:border-primary/50 flex flex-col items-center justify-center transition-all hover:-translate-y-0.5" data-symbol="peacock" data-theme="Blue Jacaranda &amp; Jasmine" data-title="Peacock Weaver" title="Peacock" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="9" cy="9" r="3"></circle>
+<path d="M9 12V20"></path>
+<path d="M12 9C15 6 20 6 21 10C21 14 17 17 12 17"></path>
+<path d="M12 7C16 3 22 4 22 9"></path>
+</svg>
+</button>
+<!-- 5. Nilavilakku Oil Lamp -->
+<button class="mascot-btn p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/70 text-on-surface-variant hover:text-primary hover:border-primary/50 flex flex-col items-center justify-center transition-all hover:-translate-y-0.5" data-symbol="diya" data-theme="Radiant Saffron Flame" data-title="Lamp Keeper" title="Nilavilakku Lamp" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 3C12 3 14 6 14 8C14 9.1 13.1 10 12 10C10.9 10 10 9.1 10 8C10 6 12 3 12 3Z" fill="#c86d51"></path>
+<path d="M6 13C6 11 18 11 18 13C18 15 15 16 12 16C9 16 6 15 6 13Z"></path>
+<path d="M12 16V20"></path>
+<path d="M8 20H16"></path>
+</svg>
+</button>
+<!-- 6. Coconut Palm -->
+<button class="mascot-btn p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/70 text-on-surface-variant hover:text-primary hover:border-primary/50 flex flex-col items-center justify-center transition-all hover:-translate-y-0.5" data-symbol="palm" data-theme="Fresh Emerald Leaf Ring" data-title="Palm Grove Sage" title="Coconut Palm" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 21V9"></path>
+<path d="M12 9C9 9 5 7 4 4C7 5 10 7 12 9Z"></path>
+<path d="M12 9C15 9 19 7 20 4C17 5 14 7 12 9Z"></path>
+<path d="M12 11C8 12 5 14 4 17C7 15 10 13 12 11Z"></path>
+<path d="M12 11C16 12 19 14 20 17C17 15 14 13 12 11Z"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Flower Color Palette Mini Picker -->
+<div class="mt-5 pt-4 border-t border-surface-container-highest">
+<label class="block font-label text-xs uppercase font-bold text-on-surface-variant mb-2">
+          Signature Petal Palette
+        </label>
+<div class="flex items-center gap-2.5">
+<button class="w-7 h-7 rounded-full bg-[#c86d51] border-2 border-white shadow-sm hover:scale-110 transition-transform" title="Terracotta Chethi"></button>
+<button class="w-7 h-7 rounded-full bg-[#d9822b] border-2 border-white shadow-sm hover:scale-110 transition-transform" title="Amber Marigold"></button>
+<button class="w-7 h-7 rounded-full bg-[#e8a838] border-2 border-primary ring-2 ring-primary/40 shadow-sm hover:scale-110 transition-transform" title="Warm Jamanthi"></button>
+<button class="w-7 h-7 rounded-full bg-[#fdfcf7] border-2 border-outline-variant shadow-sm hover:scale-110 transition-transform" title="White Thumba"></button>
+<button class="w-7 h-7 rounded-full bg-[#4a7c59] border-2 border-white shadow-sm hover:scale-110 transition-transform" title="Sage Palm Ring"></button>
+<button class="w-7 h-7 rounded-full bg-[#705c30] border-2 border-white shadow-sm hover:scale-110 transition-transform" title="Earthy Vadamalli"></button>
+</div>
+</div>
+</div>
+<!-- RIGHT BENTO COL: The Two Main Game Gateways (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Action Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- GATEWAY 1: Create Room Card (Forest Sage Terra) -->
+<div class="card-terra-clay rounded-2xl bg-surface-container-lowest border border-outline-variant/80 p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-primary-fixed/20 blur-xl group-hover:scale-125 transition-transform"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center shadow-sm">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+<path d="M12 2v4" stroke-width="2"></path>
+</svg>
+</div>
+<span class="font-label text-xs uppercase font-bold text-on-primary-fixed-variant bg-primary-fixed px-3 py-1 rounded-full">
+                Party Host
+              </span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1.5">
+              Create Room
+            </h3>
+<p class="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Host your own Onam art party with custom rules, round timers, spectator screen, and petal budgets.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-highest">
+<button class="w-full btn-terra-primary py-3 px-4 rounded-xl font-headline text-base font-bold flex items-center justify-center gap-2" id="btn-open-create" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M12 5v14M5 12h14"></path>
+</svg>
+<span>Host Game</span>
+</button>
+</div>
+</div>
+<!-- GATEWAY 2: Join Room Card (Terracotta Clay) -->
+<div class="card-terra-clay rounded-2xl bg-surface-container-lowest border border-outline-variant/80 p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-terracotta-container/40 blur-xl group-hover:scale-125 transition-transform"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-terracotta-container text-terracotta flex items-center justify-center shadow-sm">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+<path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-4.05 11a22.3 22.3 0 0 1-3.95 2z"></path>
+<path d="M9 12H4s.5-2 2-2 2 .5 3 2z"></path>
+<path d="M15 9V4s2 .5 2 2-.5 2-2 3z"></path>
+</svg>
+</div>
+<span class="font-label text-xs uppercase font-bold text-terracotta bg-terracotta-container px-3 py-1 rounded-full border border-terracotta/30">
+                Quick Join
+              </span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1.5">
+              Join Room
+            </h3>
+<p class="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Hop into a friend's active floral match or spectator lounge with a 6-letter room code.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-highest">
+<button class="w-full btn-terra-secondary py-3 px-4 rounded-xl font-headline text-base font-bold flex items-center justify-center gap-2 border border-outline-variant/80 hover:border-terracotta hover:text-terracotta" id="btn-focus-join" type="button">
+<svg class="w-4 h-4 text-terracotta" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+<polyline points="10 17 15 12 10 7"></polyline>
+<line x1="15" x2="3" y1="12" y2="12"></line>
+</svg>
+<span>Enter Code</span>
+</button>
+</div>
+</div>
+</div>
+<!-- THE ARENA ENTRY FORM MODULE -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/80 p-6 md:p-7 card-terra-clay" id="join-form-card">
+<div class="flex items-center justify-between mb-5">
+<div>
+<h3 class="font-headline text-lg sm:text-xl font-bold text-on-surface flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+              Ready to Weave? Set Your Name &amp; Code
+            </h3>
+<p class="font-body text-xs sm:text-sm text-on-surface-variant mt-0.5">Instant jump into live Pookalam drawing rooms.</p>
+</div>
+<span class="font-label text-xs uppercase font-bold text-on-surface-variant bg-surface-container px-3 py-1 rounded-full border border-outline-variant/60">
+            No sign-up needed
+          </span>
+</div>
+<form class="space-y-4" id="arena-form" onsubmit="event.preventDefault(); triggerJoinCelebration();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Field 1: Nickname -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="font-label text-xs uppercase font-bold text-on-surface" for="player-nickname">
+                  Florist Nickname
+                </label>
+<span class="font-numeric text-[11px] text-on-surface-variant" id="char-counter">
+                  16/20
+                </span>
+</div>
+<div class="relative">
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant/80 rounded-xl px-4 font-headline text-base text-on-surface placeholder-on-surface-variant/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all uppercase tracking-wide" id="player-nickname" maxlength="20" placeholder="ENTER NAME..." required="" type="text" value="Marigold Maestro"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary p-1 rounded-lg" id="btn-random-name" title="Randomize Name" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Field 2: 6-Letter Room Code -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="font-label text-xs uppercase font-bold text-on-surface" for="room-code-input">
+                  6-Letter Room PIN
+                </label>
+<span class="font-label text-xs text-terracotta font-semibold">
+                  Public or Private
+                </span>
+</div>
+<div class="relative">
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant/80 rounded-xl px-4 font-numeric text-lg text-center font-bold text-primary placeholder-on-surface-variant/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20 transition-all uppercase tracking-widest" id="room-code-input" maxlength="6" placeholder="POOKAL" required="" type="text" value="ONAM26"/>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full h-14 btn-terra-primary rounded-xl font-headline text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-2" type="submit">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L15 8L21 9L17 14L18 20L12 17L6 20L7 14L3 9L9 8L12 2Z"></path>
+</svg>
+<span>Enter the Arena</span>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" viewbox="0 0 24 24">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</button>
+<!-- Bottom status badges -->
+<div class="flex flex-wrap items-center justify-between text-on-surface-variant pt-2 gap-2 text-xs">
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" viewbox="0 0 24 24">
+<polyline points="20 6 9 17 4 12"></polyline>
+</svg>
+<span>Ping: <strong class="font-numeric text-on-surface">24ms</strong> (Mumbai Node)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-tertiary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="12" x2="12" y1="8" y2="12"></line>
+<line x1="12" x2="12.01" y1="16" y2="16"></line>
+</svg>
+<span>Spectator lounge ready</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- LIVE STATS STRIP -->
+<!-- ========================================================================= -->
+<div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/70 shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</div>
+<div>
+<div class="font-numeric text-base font-bold text-on-surface">284,910</div>
+<div class="font-label text-xs text-on-surface-variant">Petals Dropped Today</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/70 shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-terracotta-container flex items-center justify-center text-terracotta">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<rect height="14" rx="2" ry="2" width="20" x="2" y="3"></rect>
+<line x1="8" x2="16" y1="21" y2="21"></line>
+<line x1="12" x2="12" y1="17" y2="21"></line>
+</svg>
+</div>
+<div>
+<div class="font-numeric text-base font-bold text-on-surface">312 Rooms</div>
+<div class="font-label text-xs text-on-surface-variant">Active Drawing Arenas</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/70 shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+</div>
+<div>
+<div class="font-numeric text-base font-bold text-on-surface">45s / Round</div>
+<div class="font-label text-xs text-on-surface-variant">Tactile Speed Timer</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/70 shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-tertiary">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+<path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+<path d="M4 22h16"></path>
+<path d="M10 14.66V17c0 .55-.45 1-1 1H7v2h10v-2h-2c-.55 0-1-.45-1-1v-2.34c3-.57 5-3.08 5-6.66V4H6v4c0 3.58 2 6.09 5 6.66z"></path>
+</svg>
+</div>
+<div>
+<div class="font-numeric text-base font-bold text-on-surface">₹50,000</div>
+<div class="font-label text-xs text-on-surface-variant">Grand Onam Prize Pool</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- QUICK RULES SUMMARY -->
+<!-- ========================================================================= -->
+<section class="mt-12 bg-surface-container-low rounded-2xl border border-outline-variant/80 p-6 md:p-8" id="rules">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-surface-container-highest">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">
+          How The Floral Arcade Works
+        </h3>
+<p class="font-body text-xs sm:text-sm text-on-surface-variant mt-0.5">
+          3 simple steps to crown the Pookalam Grand Master of your family or Discord server.
+        </p>
+</div>
+<a class="font-label text-xs text-primary font-bold hover:underline flex items-center gap-1.5" href="#rules-full">
+        Full Tournament Rules
+        <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Step 1 -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/60 relative">
+<span class="font-numeric text-3xl text-outline-variant/50 font-black absolute top-3 right-4">01</span>
+<div class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<circle cx="12" cy="12" r="6"></circle>
+<circle cx="12" cy="12" r="2"></circle>
+</svg>
+</div>
+<h4 class="font-headline text-base font-bold text-on-surface mb-1">Concentric Rings</h4>
+<p class="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">Each round unlocks a new concentric ring of the carpet starting from the sacred Atham center outward.</p>
+</div>
+<!-- Step 2 -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/60 relative">
+<span class="font-numeric text-3xl text-outline-variant/50 font-black absolute top-3 right-4">02</span>
+<div class="w-9 h-9 rounded-lg bg-terracotta-container text-terracotta flex items-center justify-center mb-3">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+</svg>
+</div>
+<h4 class="font-headline text-base font-bold text-on-surface mb-1">Petal Budgeting</h4>
+<p class="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">Spend scarce Marigold, Thumba, and Saffron petals strategically. Balance speed streaks with color harmony.</p>
+</div>
+<!-- Step 3 -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/60 relative">
+<span class="font-numeric text-3xl text-outline-variant/50 font-black absolute top-3 right-4">03</span>
+<div class="w-9 h-9 rounded-lg bg-secondary-container text-tertiary flex items-center justify-center mb-3">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+</div>
+<h4 class="font-headline text-base font-bold text-on-surface mb-1">Real-time Voting</h4>
+<p class="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">Audience and players cast spark votes to rate symmetry, vibrant contrasts, and Onam spirit. Top score claims the throne!</p>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================================= -->
+<footer class="bg-surface-container-lowest border-t border-surface-container-highest">
+<div class="w-full py-8 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="font-headline text-xl font-bold text-on-surface">
+        Pookalam<span class="text-primary">.io</span>
+</span>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<p class="font-body text-xs text-on-surface-variant">
+        © 2025 Pookalam.io. Real-time Onam Floral Carpet Arcade. Terra Edition.
+      </p>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+<a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#rules">Game Rules</a>
+<a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#lore">Flower Lore</a>
+<a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#host">Host Screen</a>
+<a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#discord">Community Discord</a>
+<a class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors" href="#privacy">Privacy</a>
+</div>
+</div>
+</footer>
+<!-- ========================================================================= -->
+<!-- INLINE CLIENT MICRO-INTERACTIONS (Vanilla JS) -->
+<!-- ========================================================================= -->
+<script>
+  // 1. Character Counter & Nickname Syncer
+  const nicknameInput = document.getElementById('player-nickname');
+  const charCounter = document.getElementById('char-counter');
+  const displayFloristName = document.getElementById('display-florist-name');
+
+  nicknameInput.addEventListener('input', (e) => {
+    const val = e.target.value;
+    charCounter.textContent = `${val.length}/20`;
+    displayFloristName.textContent = val.trim().length > 0 ? val : 'Anonymous Florist';
+  });
+
+  // 2. Mascot Emblem Selector
+  const mascotButtons = document.querySelectorAll('.mascot-btn');
+  const activeAvatarIcon = document.getElementById('active-avatar-icon');
+  const displayThemeTitle = document.getElementById('display-theme-title');
+
+  mascotButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      mascotButtons.forEach(b => {
+        b.classList.remove('active', 'bg-primary', 'text-white', 'border-primary');
+        b.classList.add('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/70');
+      });
+      
+      btn.classList.add('active', 'bg-primary', 'text-white', 'border-primary');
+      btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/70');
+
+      const svgClone = btn.querySelector('svg').cloneNode(true);
+      svgClone.setAttribute('class', 'w-14 h-14');
+      activeAvatarIcon.innerHTML = '';
+      activeAvatarIcon.appendChild(svgClone);
+
+      displayThemeTitle.textContent = `Master of ${btn.dataset.theme}`;
+    });
+  });
+
+  // 3. Random Florist Name Generator
+  const randomNames = [
+    "Thumba Whisperer", "Saffron Weaver", "Chethi Champion", 
+    "Mandala King", "Nila Petal Queen", "Lotus Chieftain", 
+    "Onam Arrow", "Mahabali Scout", "Velaku Spark"
+  ];
+  document.getElementById('btn-random-name').addEventListener('click', () => {
+    const pick = randomNames[Math.floor(Math.random() * randomNames.length)];
+    nicknameInput.value = pick;
+    nicknameInput.dispatchEvent(new Event('input'));
+  });
+
+  // 4. Quick focus into Room Code
+  document.getElementById('btn-focus-join').addEventListener('click', () => {
+    const roomInput = document.getElementById('room-code-input');
+    roomInput.focus();
+    roomInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    roomInput.classList.add('ring-2', 'ring-terracotta');
+    setTimeout(() => roomInput.classList.remove('ring-2', 'ring-terracotta'), 1200);
+  });
+
+  // 5. Host button configures host code
+  document.getElementById('btn-open-create').addEventListener('click', () => {
+    const roomInput = document.getElementById('room-code-input');
+    const randomCode = 'HOST' + Math.floor(10 + Math.random() * 89);
+    roomInput.value = randomCode;
+    roomInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    roomInput.focus();
+  });
+
+  // 6. Audio Toggle State
+  const soundBtn = document.getElementById('btn-sound');
+  let soundOn = true;
+  soundBtn.addEventListener('click', () => {
+    soundOn = !soundOn;
+    const icon = soundBtn.querySelector('span');
+    icon.textContent = soundOn ? 'volume_up' : 'volume_off';
+    soundBtn.classList.toggle('text-primary', soundOn);
+  });
+
+  // 7. Simulated Arena Entry Feedback
+  function triggerJoinCelebration() {
+    const nick = nicknameInput.value.toUpperCase();
+    const code = document.getElementById('room-code-input').value.toUpperCase();
+    
+    const submitBtn = document.querySelector('#arena-form button[type="submit"]');
+    
+    submitBtn.innerHTML = `
+      <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      <span>Entering Room #${code}...</span>
+    `;
+    submitBtn.classList.add('opacity-90');
+
+    setTimeout(() => {
+      submitBtn.innerHTML = `
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span>Welcome, ${nick}! Loading Canvas...</span>
+      `;
+      submitBtn.classList.remove('btn-terra-primary');
+      submitBtn.classList.add('bg-primary-container', 'text-on-surface');
+    }, 850);
+  }
+</script>
+</body></html>

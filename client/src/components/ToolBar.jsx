@@ -3,7 +3,7 @@ import { DRAWING_COLORS, BRUSH_SIZES } from '../utils/constants';
 export default function ToolBar({ activeTool, activeColor, activeBrushSize, onSetTool, onSetColor, onSetBrushSize, onUndo, onClear, disabled = false }) {
   return (
     <div
-      className={`glass-card px-5 py-4 flex flex-wrap items-center gap-4 transition-opacity ${
+      className={`terra-card px-5 py-4 flex flex-wrap items-center gap-4 transition-opacity ${
         disabled ? 'opacity-50 pointer-events-none' : ''
       }`}
     >
@@ -11,7 +11,7 @@ export default function ToolBar({ activeTool, activeColor, activeBrushSize, onSe
       <div className="flex items-center gap-2">
         <button
           onClick={() => onSetTool('brush')}
-          className={`tool-button ${activeTool === 'brush' ? 'tool-button-active' : ''}`}
+          className={`tool-button-terra ${activeTool === 'brush' ? 'tool-button-terra-active' : ''}`}
           title="Brush"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -23,7 +23,7 @@ export default function ToolBar({ activeTool, activeColor, activeBrushSize, onSe
         </button>
         <button
           onClick={() => onSetTool('eraser')}
-          className={`tool-button ${activeTool === 'eraser' ? 'tool-button-active' : ''}`}
+          className={`tool-button-terra ${activeTool === 'eraser' ? 'tool-button-terra-active' : ''}`}
           title="Eraser"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -32,15 +32,15 @@ export default function ToolBar({ activeTool, activeColor, activeBrushSize, onSe
           </svg>
         </button>
 
-        <div className="w-px h-8 bg-white/10 mx-1" />
+        <div className="w-px h-8 bg-outline-variant/30 mx-1" />
 
-        <button onClick={onUndo} className="tool-button" title="Undo (Ctrl+Z)">
+        <button onClick={onUndo} className="tool-button-terra" title="Undo (Ctrl+Z)">
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 7v6h6" />
             <path d="M21 17a9 9 0 00-9-9 9 9 0 00-6 2.3L3 13" />
           </svg>
         </button>
-        <button onClick={onClear} className="tool-button" title="Clear Canvas">
+        <button onClick={onClear} className="tool-button-terra" title="Clear Canvas">
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 6h18" />
             <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
@@ -55,8 +55,8 @@ export default function ToolBar({ activeTool, activeColor, activeBrushSize, onSe
           <button
             key={s.value}
             onClick={() => onSetBrushSize(s.value)}
-            className={`tool-button min-w-[36px] text-xs font-display font-bold ${
-              activeBrushSize === s.value ? 'tool-button-active' : ''
+            className={`tool-button-terra min-w-[36px] text-xs font-headline font-bold ${
+              activeBrushSize === s.value ? 'tool-button-terra-active' : ''
             }`}
           >
             {s.label}
@@ -64,36 +64,41 @@ export default function ToolBar({ activeTool, activeColor, activeBrushSize, onSe
         ))}
       </div>
 
-      <div className="w-px h-8 bg-white/10" />
+      <div className="w-px h-8 bg-outline-variant/30" />
 
       {/* Color Palette */}
-      <div className="flex flex-wrap items-center gap-1.5">
+      <div className="flex flex-wrap items-center gap-2">
         {DRAWING_COLORS.map((c) => (
-          <button
-            key={c}
-            onClick={() => {
-              onSetColor(c);
-              onSetTool('brush');
-            }}
-            className={`color-swatch ${activeColor === c && activeTool === 'brush' ? 'color-swatch-active' : ''}`}
-            style={{ backgroundColor: c }}
-            title={c}
-          />
+          <div key={c.hex} className="flex flex-col items-center gap-1">
+            <button
+              onClick={() => {
+                onSetColor(c.hex);
+                onSetTool('brush');
+              }}
+              className={`color-swatch-terra ${activeColor === c.hex && activeTool === 'brush' ? 'color-swatch-terra-active' : ''}`}
+              style={{ backgroundColor: c.hex }}
+              title={c.name}
+            />
+            <span className="text-[10px] text-on-surface-variant font-body">{c.name}</span>
+          </div>
         ))}
 
         {/* Custom color picker */}
-        <label className="color-swatch flex items-center justify-center bg-gradient-to-br from-red-500 via-green-500 to-blue-500 cursor-pointer" title="Custom Color">
-          <input
-            type="color"
-            value={activeColor}
-            onChange={(e) => {
-              onSetColor(e.target.value);
-              onSetTool('brush');
-            }}
-            className="sr-only"
-          />
-          <span className="text-[10px] font-bold text-white drop-shadow-md">+</span>
-        </label>
+        <div className="flex flex-col items-center gap-1">
+          <label className="color-swatch-terra flex items-center justify-center bg-gradient-to-br from-red-500 via-green-500 to-blue-500 cursor-pointer" title="Custom Color">
+            <input
+              type="color"
+              value={activeColor}
+              onChange={(e) => {
+                onSetColor(e.target.value);
+                onSetTool('brush');
+              }}
+              className="sr-only"
+            />
+            <span className="text-[10px] font-bold text-white drop-shadow-md">+</span>
+          </label>
+          <span className="text-[10px] text-on-surface-variant font-body">Custom</span>
+        </div>
       </div>
     </div>
   );

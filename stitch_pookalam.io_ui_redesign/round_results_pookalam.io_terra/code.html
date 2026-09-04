@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pookalam.io — Round 2 Results &amp; Standings</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..800;1,7..72,400..700&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#8ecf9e",
+            "on-tertiary-container": "#554020",
+            "on-secondary-fixed": "#1e1a13",
+            "primary": "#4a7c59",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#4a7c59",
+            "inverse-surface": "#2e3230",
+            "surface-container-high": "#eae6de",
+            "secondary-container": "#f0e8db",
+            "tertiary-container": "#c4a66a",
+            "outline-variant": "#c4c8bc",
+            "tertiary-fixed-dim": "#dcc48e",
+            "on-primary-fixed-variant": "#2a6038",
+            "secondary-fixed-dim": "#d4ccbf",
+            "tertiary": "#705c30",
+            "surface": "#faf6f0",
+            "inverse-on-surface": "#f5f0e8",
+            "on-surface": "#2e3230",
+            "on-primary-fixed": "#002110",
+            "inverse-primary": "#8ecf9e",
+            "on-error-container": "#690005",
+            "on-background": "#2e3230",
+            "on-surface-variant": "#4a4e4a",
+            "surface-container": "#f0ece4",
+            "surface-container-highest": "#e4e0d8",
+            "surface-container-low": "#f5f1ea",
+            "error": "#b83230",
+            "tertiary-fixed": "#f8e0a8",
+            "secondary": "#6b6358",
+            "error-container": "#ffdad8",
+            "surface-variant": "#e4e0d8",
+            "on-secondary-fixed-variant": "#4a4538",
+            "outline": "#74796e",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#554020",
+            "secondary-fixed": "#f0e8db",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#5e5548",
+            "on-primary-container": "#173822",
+            "surface-dim": "#dbd7cf",
+            "background": "#faf6f0",
+            "primary-container": "#78a886",
+            "on-tertiary-fixed": "#221a05",
+            "primary-fixed": "#c8e8d0",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#faf6f0",
+            "terracotta": "#c86343",
+            "terracotta-container": "#faebe5",
+            "on-terracotta": "#ffffff",
+            "on-terracotta-container": "#682513",
+            "clay": "#b85d3b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1.5rem",
+            "3xl": "2rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Literata", "serif"],
+            "display": ["Literata", "serif"],
+            "body": ["Nunito Sans", "sans-serif"],
+            "label": ["Nunito Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .terra-btn-primary {
+      background-color: #4a7c59;
+      color: #ffffff;
+      border: 1px solid #3d6849;
+      box-shadow: 0 4px 12px rgba(74, 124, 89, 0.22);
+      transition: all 0.15s ease;
+    }
+    .terra-btn-primary:hover {
+      background-color: #3d6849;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(74, 124, 89, 0.28);
+    }
+    .terra-btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 6px rgba(74, 124, 89, 0.2);
+    }
+
+    .terra-btn-secondary {
+      background-color: #ffffff;
+      color: #2e3230;
+      border: 1px solid #c4c8bc;
+      box-shadow: 0 2px 6px rgba(46, 50, 48, 0.05);
+      transition: all 0.15s ease;
+    }
+    .terra-btn-secondary:hover {
+      background-color: #f5f1ea;
+      border-color: #74796e;
+      transform: translateY(-1px);
+    }
+    .terra-btn-secondary:active {
+      transform: translateY(1px);
+    }
+
+    .shimmer-progress-terra {
+      background: linear-gradient(90deg, #c86343 0%, #4a7c59 50%, #78a886 100%);
+      background-size: 200% 100%;
+      animation: terraStripe 3s linear infinite;
+    }
+    @keyframes terraStripe {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    .botanical-petal {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.35;
+      animation: floatBotanical 8s ease-in-out infinite alternate;
+    }
+    @keyframes floatBotanical {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-14px) rotate(15deg); }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body selection:bg-primary-fixed selection:text-on-primary-fixed relative overflow-x-hidden antialiased">
+<!-- Subtle Organic Ambient Backing -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[380px] bg-primary-fixed opacity-40 blur-[130px] rounded-full"></div>
+<div class="absolute top-1/3 -left-36 w-[480px] h-[480px] bg-terracotta-container opacity-50 blur-[140px] rounded-full"></div>
+<div class="absolute bottom-10 -right-36 w-[560px] h-[560px] bg-secondary-container opacity-60 blur-[150px] rounded-full"></div>
+<!-- Floating delicate botanical petal vectors -->
+<svg class="botanical-petal top-28 left-[10%] w-6 h-6 text-primary fill-current" viewbox="0 0 24 24"><path d="M12 2C8 7 4 12 12 22C20 12 16 7 12 2Z"></path></svg>
+<svg class="botanical-petal top-44 right-[12%] w-7 h-7 text-terracotta fill-current" style="animation-delay: 1.4s;" viewbox="0 0 24 24"><path d="M12 2C8 7 4 12 12 22C20 12 16 7 12 2Z"></path></svg>
+<svg class="botanical-petal bottom-48 left-[7%] w-5 h-5 text-tertiary-container fill-current" style="animation-delay: 2.8s;" viewbox="0 0 24 24"><path d="M12 2C8 7 4 12 12 22C20 12 16 7 12 2Z"></path></svg>
+<svg class="botanical-petal top-96 right-[7%] w-6 h-6 text-primary-fixed-dim fill-current" style="animation-delay: 0.9s;" viewbox="0 0 24 24"><path d="M12 2C8 7 4 12 12 22C20 12 16 7 12 2Z"></path></svg>
+</div>
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/60 docked full-width top-0 z-30 sticky">
+<div class="flex justify-between items-center w-full px-4 md:px-8 h-20 max-w-7xl mx-auto">
+<!-- Brand Logo -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary shadow-sm">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="3"></circle>
+<path d="M12 2a4 4 0 0 0-4 4c0 3 4 5 4 5s4-2 4-5a4 4 0 0 0-4-4z"></path>
+<path d="M12 22a4 4 0 0 0 4-4c0-3-4-5-4-5s-4 2-4 5a4 4 0 0 0 4 4z"></path>
+<path d="M2 12a4 4 0 0 0 4 4c3 0 5-4 5-4s-2-4-5-4a4 4 0 0 0-4 4z"></path>
+<path d="M22 12a4 4 0 0 0-4-4c-3 0-5 4-5 4s2 4 5 4a4 4 0 0 0 4-4z"></path>
+</svg>
+</div>
+<span class="font-headline text-2xl tracking-tight font-bold text-on-surface select-none">
+          Pookalam<span class="text-primary font-normal">.io</span>
+</span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8 font-label text-sm font-semibold">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold" href="#arena">
+          Arena
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#lobbies">
+          Lobbies
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#leaderboard">
+          Leaderboard
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#rules">
+          How to Play
+        </a>
+</nav>
+<!-- Trailing Cluster -->
+<div class="flex items-center gap-2.5">
+<!-- Room Pill -->
+<div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-container border border-outline-variant/80 font-label text-xs font-bold text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Room #POOKALAM
+        </div>
+<!-- Utility Icons -->
+<button aria-label="Sound settings" class="p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/60 transition-all">
+<span class="material-symbols-outlined text-[19px] align-middle">volume_up</span>
+</button>
+<button aria-label="Toggle fullscreen" class="p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/60 transition-all">
+<span class="material-symbols-outlined text-[19px] align-middle">fullscreen</span>
+</button>
+<button aria-label="Game Settings" class="p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/60 transition-all">
+<span class="material-symbols-outlined text-[19px] align-middle">settings</span>
+</button>
+<!-- Trailing Primary Action -->
+<button class="terra-btn-primary font-label text-xs uppercase px-4 py-2.5 rounded-xl font-bold tracking-wider flex items-center gap-1.5 ml-1">
+<span class="material-symbols-outlined text-[17px]">add_circle</span>
+          Create Room
+        </button>
+</div>
+</div>
+</header>
+<!-- Main Intermission Viewport -->
+<main class="flex-1 z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex flex-col gap-6">
+<!-- Top Garland & Auto-Advance Progress Banner -->
+<section class="w-full bg-surface-container-lowest border border-outline-variant rounded-2xl p-5 md:p-6 shadow-sm relative overflow-hidden">
+<!-- Decorative Floral & Mango Leaf Vine Header SVG -->
+<div class="absolute -top-1 left-0 right-0 h-6 flex justify-between pointer-events-none opacity-80 overflow-hidden">
+<svg class="w-full h-7 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 1200 24">
+<path d="M0 0 C 75 20, 125 20, 200 0 C 275 20, 325 20, 400 0 C 475 20, 525 20, 600 0 C 675 20, 725 20, 800 0 C 875 20, 925 20, 1000 0 C 1075 20, 1125 20, 1200 0" fill="none" stroke="#78a886" stroke-width="2.5"></path>
+<circle cx="100" cy="13" fill="#c86343" r="4.5"></circle>
+<circle cx="300" cy="13" fill="#c4a66a" r="4.5"></circle>
+<circle cx="500" cy="13" fill="#c86343" r="4.5"></circle>
+<circle cx="700" cy="13" fill="#c4a66a" r="4.5"></circle>
+<circle cx="900" cy="13" fill="#c86343" r="4.5"></circle>
+<circle cx="1100" cy="13" fill="#c4a66a" r="4.5"></circle>
+</svg>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-2">
+<!-- Stage Announcement -->
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/80 border border-outline-variant flex items-center justify-center text-primary shadow-sm">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+<path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+<path d="M4 22h16"></path>
+<path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+<path d="M6 4h12v7a6 6 0 0 1-12 0V4Z"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label text-[11px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-terracotta-container text-on-terracotta-container font-extrabold">
+              Intermission
+            </span>
+<span class="text-on-surface-variant font-body text-xs">Room Standings Updated</span>
+</div>
+<h1 class="font-headline text-2xl md:text-3xl font-bold tracking-tight text-on-surface flex items-center gap-2 mt-0.5">
+            Round 2 of 4 Complete!
+          </h1>
+</div>
+</div>
+<!-- Animated Countdown Gauge & Progress -->
+<div class="w-full md:w-72 flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-xs font-label">
+<span class="text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary animate-spin" style="animation-duration: 4s;">sync</span>
+            Round 3 launching in <span class="text-primary font-bold" id="countdown-sec">7s</span>...
+          </span>
+<span class="text-on-surface-variant font-label text-[11px] uppercase tracking-wider">Auto-Advance</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden border border-outline-variant/60 p-0.5">
+<div class="h-full rounded-full shimmer-progress-terra w-[75%] transition-all duration-1000 ease-linear" id="advance-bar"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout: Left = Champion Spotlight | Right = Full Standings -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN: Winner Spotlight Hero Card (5 Cols) -->
+<section class="lg:col-span-5 flex flex-col gap-4">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 relative overflow-hidden shadow-sm">
+<!-- Warm Terracotta & Sage Subtle Ambient Glow -->
+<div class="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-72 bg-primary-fixed opacity-50 blur-3xl rounded-full pointer-events-none"></div>
+<!-- Marquee Badge -->
+<div class="flex justify-center -mt-1 mb-4">
+<div class="inline-flex items-center gap-2 bg-secondary-container text-on-tertiary-container px-3.5 py-1 rounded-full border border-tertiary-fixed-dim/80 shadow-xs">
+<svg class="w-3.5 h-3.5 text-terracotta" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM11 16L7 12L8.4 10.6L11 13.2L15.6 8.6L17 10L11 16Z"></path>
+</svg>
+<span class="font-label text-xs uppercase tracking-wider font-extrabold text-on-surface">Round 2 Champion</span>
+<svg class="w-3.5 h-3.5 text-terracotta rotate-180" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C20 12 16 7 12 2Z"></path>
+</svg>
+</div>
+</div>
+<!-- Botanical Wreath & Kathakali Avatar Frame -->
+<div class="relative flex justify-center items-center my-3">
+<!-- Laurel / Foliage SVG Wreath in Terra Olive/Forest Green -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<svg class="w-56 h-56 text-primary" fill="none" stroke="currentColor" viewbox="0 0 240 240">
+<path d="M60 170 C 45 130, 48 80, 85 45" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M50 145 C 38 140, 36 128, 48 128 C 54 128, 56 135, 50 145 Z" fill="#4a7c59"></path>
+<path d="M47 115 C 35 110, 35 98, 48 100 C 54 101, 54 109, 47 115 Z" fill="#4a7c59"></path>
+<path d="M54 85 C 44 78, 46 66, 58 70 C 64 72, 62 80, 54 85 Z" fill="#4a7c59"></path>
+<path d="M69 60 C 62 52, 68 42, 78 48 C 84 52, 79 58, 69 60 Z" fill="#4a7c59"></path>
+<path d="M180 170 C 195 130, 192 80, 155 45" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M190 145 C 202 140, 204 128, 192 128 C 186 128, 184 135, 190 145 Z" fill="#4a7c59"></path>
+<path d="M193 115 C 205 110, 205 98, 192 100 C 186 101, 186 109, 193 115 Z" fill="#4a7c59"></path>
+<path d="M186 85 C 196 78, 194 66, 182 70 C 176 72, 178 80, 186 85 Z" fill="#4a7c59"></path>
+<path d="M171 60 C 178 52, 172 42, 162 48 C 156 52, 161 58, 171 60 Z" fill="#4a7c59"></path>
+<path d="M105 185 C 120 180, 120 180, 135 185" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<!-- Avatar Container with Sand / Clay Frame -->
+<div class="relative z-10 w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-primary to-clay shadow-md">
+<div class="w-full h-full rounded-full bg-surface-container border-2 border-surface-container-lowest flex items-center justify-center overflow-hidden">
+<svg class="w-20 h-20 text-on-surface" fill="none" viewbox="0 0 100 100">
+<polygon fill="#c4a66a" points="50,6 68,26 32,26" stroke="#705c30" stroke-width="2"></polygon>
+<circle cx="50" cy="18" fill="#c86343" r="4"></circle>
+<circle cx="40" cy="22" fill="#4a7c59" r="2.5"></circle>
+<circle cx="60" cy="22" fill="#4a7c59" r="2.5"></circle>
+<path d="M28 26 Q50 30 72 26 L74 34 Q50 38 26 34 Z" fill="#b85d3b"></path>
+<path d="M28 35 C28 35 24 64 50 78 C76 64 72 35 72 35 Z" fill="#4a7c59"></path>
+<path d="M26 35 C24 66 50 82 50 82 C50 82 76 66 74 35" fill="none" stroke="#FAF6F0" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M34 46 Q42 42 46 48 Q42 50 34 46 Z" fill="#2E3230"></path>
+<circle cx="42" cy="46.5" fill="#c86343" r="1.5"></circle>
+<path d="M66 46 Q58 42 54 48 Q58 50 66 46 Z" fill="#2E3230"></path>
+<circle cx="58" cy="46.5" fill="#c86343" r="1.5"></circle>
+<path d="M44 65 Q50 68 56 65 Q50 62 44 65 Z" fill="#c86343"></path>
+<path d="M49 34 L51 34 L52 42 L48 42 Z" fill="#F8E0A8"></path>
+</svg>
+</div>
+</div>
+<!-- 1st Place Trophy Mini Badge -->
+<div class="absolute -top-2 z-20 w-8 h-8 bg-terracotta text-white rounded-xl border-2 border-white flex items-center justify-center shadow-sm">
+<svg class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z"></path>
+</svg>
+</div>
+</div>
+<!-- Winner Metadata -->
+<div class="text-center mt-1">
+<h2 class="font-headline text-2xl font-bold text-on-surface">Devanand</h2>
+<p class="text-on-surface-variant font-body text-xs flex items-center justify-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              Lobby Host • Master Florist
+            </p>
+<!-- Score Pill -->
+<div class="inline-flex items-center gap-2 bg-surface-container-low border border-outline-variant/80 rounded-2xl px-5 py-2 mt-3 shadow-xs">
+<span class="font-body text-sm text-on-surface-variant">Round 2 Score:</span>
+<span class="font-label text-base text-primary font-bold tracking-tight">+940 pts</span>
+</div>
+</div>
+<!-- Star Rating Breakdown & Votes -->
+<div class="bg-surface-container-low border border-outline-variant/70 rounded-2xl p-3 mt-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="flex text-terracotta">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg class="w-4 h-4 fill-current opacity-40" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+</div>
+<span class="font-label text-sm font-bold text-on-surface">4.8 <span class="text-on-surface-variant font-normal text-xs">/ 5.0</span></span>
+</div>
+<span class="text-xs font-label uppercase tracking-wider px-2 py-0.5 rounded-lg bg-surface-container-high text-on-surface font-semibold border border-outline-variant/60">
+              5 Votes Logged
+            </span>
+</div>
+<!-- Submitted Pookalam Preview -->
+<div class="mt-4 pt-3.5 border-t border-outline-variant/60">
+<div class="flex items-center justify-between mb-2">
+<span class="font-body text-xs text-on-surface-variant font-semibold">Submitted Pookalam</span>
+<span class="font-label text-xs text-secondary font-medium">Theme: Atham First Petal</span>
+</div>
+<div class="w-full h-36 rounded-2xl bg-surface-container border border-outline-variant/80 relative flex items-center justify-center overflow-hidden p-2">
+<!-- Radial Organic Pookalam Graphic -->
+<svg class="w-32 h-32" viewbox="0 0 200 200">
+<circle cx="100" cy="100" fill="#365c42" r="90" stroke="#78a886" stroke-width="2"></circle>
+<g fill="#c86343">
+<circle cx="100" cy="20" r="12"></circle>
+<circle cx="100" cy="180" r="12"></circle>
+<circle cx="20" cy="100" r="12"></circle>
+<circle cx="180" cy="100" r="12"></circle>
+<circle cx="43" cy="43" r="12"></circle>
+<circle cx="157" cy="157" r="12"></circle>
+<circle cx="43" cy="157" r="12"></circle>
+<circle cx="157" cy="43" r="12"></circle>
+</g>
+<circle cx="100" cy="100" fill="#705c30" r="68"></circle>
+<circle cx="100" cy="100" fill="#c4a66a" r="64"></circle>
+<g fill="#b85d3b">
+<path d="M100 45 C115 70, 115 70, 100 95 C85 70, 85 70, 100 45 Z"></path>
+<path d="M100 155 C115 130, 115 130, 100 105 C85 130, 85 130, 100 155 Z"></path>
+<path d="M45 100 C70 115, 70 115, 95 100 C70 85, 70 85, 45 100 Z"></path>
+<path d="M155 100 C130 115, 130 115, 105 100 C130 85, 130 85, 155 100 Z"></path>
+</g>
+<circle cx="100" cy="100" fill="#FAF6F0" r="28"></circle>
+<path d="M100 80 L104 90 L108 95 L92 95 L96 90 Z" fill="#705c30"></path>
+<ellipse cx="100" cy="98" fill="#c4a66a" rx="10" ry="3"></ellipse>
+<path d="M100 82 C103 76 100 70 100 68 C100 70 97 76 100 82 Z" fill="#c86343"></path>
+<circle cx="100" cy="74" fill="#FAF6F0" r="2"></circle>
+</svg>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/60 font-label text-[10px] text-on-surface-variant font-medium">
+              100% Vector Canvas
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Tournament Standings & XP Gains (7 Cols) -->
+<section class="lg:col-span-7 flex flex-col gap-4">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-5 md:p-6 shadow-sm flex flex-col gap-4">
+<!-- Standings Header -->
+<div class="flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/60 pb-3">
+<div>
+<h2 class="font-headline text-xl md:text-2xl font-bold text-on-surface flex items-center gap-2">
+                Leaderboard Standings
+                <span class="text-xs font-label px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold border border-outline-variant/60">
+                  After Round 2
+                </span>
+</h2>
+<p class="font-body text-xs text-on-surface-variant">Cumulative scores across all completed party rounds</p>
+</div>
+<!-- Sort / Metric Tab -->
+<div class="flex items-center gap-1 bg-surface-container p-1 rounded-xl border border-outline-variant/60 text-xs font-label">
+<button class="px-3 py-1 rounded-lg bg-primary text-white font-bold shadow-xs">
+                Total Pts
+              </button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors font-medium">
+                Round Gain
+              </button>
+</div>
+</div>
+<!-- Standings Table Rows -->
+<div class="flex flex-col gap-2.5">
+<!-- RANK #1: Devanand -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/80 hover:border-primary/50 transition-all">
+<div class="flex items-center gap-3">
+<!-- Rank Badge: Gold/Forest Emblem -->
+<div class="w-9 h-9 rounded-xl bg-tertiary-fixed border border-tertiary-container flex items-center justify-center text-on-tertiary-fixed shadow-xs flex-shrink-0 font-label font-bold text-sm">
+<svg class="w-4 h-4 text-tertiary" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="14" r="6"></circle>
+<path d="M12 2L15 8L9 8L12 2Z"></path>
+<path d="M7 8L4 2L8 4L7 8Z"></path>
+<path d="M17 8L20 2L16 4L17 8Z"></path>
+</svg>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container border border-outline-variant p-0.5 flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#4a7c59" r="16"></circle>
+<polygon fill="#c4a66a" points="18,4 23,12 13,12"></polygon>
+<circle cx="14" cy="18" fill="#2E3230" r="2"></circle>
+<circle cx="22" cy="18" fill="#2E3230" r="2"></circle>
+<path d="M15 25 Q18 28 21 25" stroke="#c86343" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline text-sm font-bold text-on-surface">Devanand</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label font-bold bg-primary-fixed text-on-primary-fixed-variant">HOST</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label">
+<span>Round: +940</span>
+<span>•</span>
+<span class="text-primary font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                    1 pos
+                  </span>
+</div>
+</div>
+</div>
+<!-- Points & XP -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label text-primary font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                  +320 XP
+                </span>
+<span class="text-[11px] font-body text-on-surface-variant">High Accuracy</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label text-base md:text-lg text-primary font-bold">1,890</span>
+<span class="block text-[10px] uppercase font-label text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+<!-- RANK #2: Current User (YOU) - Highlighted in Terra Sage Container -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-secondary-container/60 border-2 border-primary relative overflow-hidden shadow-xs">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex items-center gap-3 pl-1.5">
+<!-- Rank Badge #2 -->
+<div class="w-9 h-9 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface flex-shrink-0 font-label font-black text-sm">
+<span>#2</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest border-2 border-primary p-0.5 flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#f0ece4" r="16"></circle>
+<circle cx="18" cy="15" fill="#c86343" r="7"></circle>
+<path d="M11 15 C11 8 25 8 25 15 Z" fill="#2e3230"></path>
+<circle cx="25" cy="11" fill="#c4a66a" r="3.5"></circle>
+<circle cx="18" cy="13" fill="#ffffff" r="1.5"></circle>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline text-sm font-bold text-on-surface">Ananya S.</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label bg-primary text-white font-bold tracking-wide">
+                    (YOU)
+                  </span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label">
+<span>Round: +860</span>
+<span>•</span>
+<span class="text-primary font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                    +2 ranks climbed!
+                  </span>
+</div>
+</div>
+</div>
+<!-- Points & XP -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label text-primary font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                  +290 XP
+                </span>
+<span class="text-[11px] font-body text-on-surface-variant">Speed Bonus</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label text-base md:text-lg text-primary font-black">1,780</span>
+<span class="block text-[10px] uppercase font-label text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+<!-- RANK #3: Rohan Patel -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/80 hover:border-outline transition-all">
+<div class="flex items-center gap-3">
+<!-- Rank Badge: Terracotta / Clay #3 -->
+<div class="w-9 h-9 rounded-xl bg-terracotta-container border border-clay/30 flex items-center justify-center text-on-terracotta-container flex-shrink-0 font-label font-bold text-sm">
+<span class="font-bold text-sm text-terracotta">#3</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container border border-outline-variant p-0.5 flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#eae6de" r="16"></circle>
+<circle cx="18" cy="16" fill="#c4a66a" r="7"></circle>
+<rect fill="#c86343" height="4" rx="2" width="14" x="11" y="9"></rect>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline text-sm font-bold text-on-surface">Rohan K.</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label">
+<span>Round: +720</span>
+<span>•</span>
+<span class="text-on-surface-variant font-medium">— No change</span>
+</div>
+</div>
+</div>
+<!-- Points & XP -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label text-primary font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                  +210 XP
+                </span>
+<span class="text-[11px] font-body text-on-surface-variant">Symmetry Bonus</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label text-base md:text-lg text-on-surface font-bold">1,640</span>
+<span class="block text-[10px] uppercase font-label text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+<!-- RANK #4: Meera Nair -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/80 hover:border-outline transition-all opacity-90">
+<div class="flex items-center gap-3">
+<!-- Shield Badge #4 -->
+<div class="w-9 h-9 rounded-xl bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-on-surface-variant flex-shrink-0 font-label font-bold text-xs">
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+<text fill="currentColor" font-size="9" font-weight="bold" text-anchor="middle" x="12" y="15">4</text>
+</svg>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container border border-outline-variant p-0.5 flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#eae6de" r="16"></circle>
+<circle cx="18" cy="15" fill="#d4ccbf" r="7"></circle>
+<path d="M12 11 Q18 6 24 11" fill="none" stroke="#b85d3b" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline text-sm font-bold text-on-surface">Meera Nair</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label">
+<span>Round: +610</span>
+<span>•</span>
+<span class="text-error font-semibold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5 inline rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                    1 rank
+                  </span>
+</div>
+</div>
+</div>
+<!-- Points & XP -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label text-primary font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                  +180 XP
+                </span>
+<span class="text-[11px] font-body text-on-surface-variant">Creativity</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label text-base md:text-lg text-on-surface font-bold">1,450</span>
+<span class="block text-[10px] uppercase font-label text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+<!-- RANK #5: Siddharth Menon -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/80 hover:border-outline transition-all opacity-80">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-on-surface-variant flex-shrink-0 font-label font-bold text-xs">
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+<text fill="currentColor" font-size="9" font-weight="bold" text-anchor="middle" x="12" y="15">5</text>
+</svg>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container border border-outline-variant p-0.5 flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="#eae6de" r="16"></circle>
+<circle cx="18" cy="16" fill="#c4a66a" r="7"></circle>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline text-sm font-bold text-on-surface">Sid Menon</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-label">
+<span>Round: +540</span>
+<span>•</span>
+<span class="text-on-surface-variant font-medium">— No change</span>
+</div>
+</div>
+</div>
+<!-- Points & XP -->
+<div class="flex items-center gap-3 text-right">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-label text-primary font-bold flex items-center gap-0.5">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+                  +150 XP
+                </span>
+<span class="text-[11px] font-body text-on-surface-variant">Base Award</span>
+</div>
+<div class="min-w-[70px]">
+<span class="font-label text-base md:text-lg text-on-surface font-bold">1,210</span>
+<span class="block text-[10px] uppercase font-label text-on-surface-variant">Total Pts</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Tip Box in Terra Linen/Sage style -->
+<div class="flex items-center gap-2.5 p-3 rounded-xl bg-surface-container border border-outline-variant/80 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">info</span>
+<span>You climbed 2 positions to reach <strong>#2</strong>! Finish in the top 3 of Round 3 to unlock the Golden Marigold Crown badge.</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Action Area: Next Round Teaser + Manual Ready Control Dock -->
+<section class="w-full bg-surface-container-lowest border border-outline-variant rounded-2xl p-5 md:p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-5">
+<!-- Next Round Teaser -->
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="w-14 h-14 rounded-2xl bg-terracotta-container border border-terracotta/30 flex items-center justify-center flex-shrink-0 text-terracotta shadow-xs">
+<svg class="w-7 h-7 text-terracotta" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14v2H5v-2z"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label text-[11px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-terracotta-container text-on-terracotta-container font-extrabold">
+              Up Next • Round 3
+            </span>
+<span class="text-xs text-primary font-label font-bold">Special Multiplier: 1.5x</span>
+</div>
+<h3 class="font-headline text-lg md:text-xl font-bold text-on-surface mt-0.5">
+            Theme: Grand King Mahabali &amp; Royal Umbrellas
+          </h3>
+<p class="text-on-surface-variant font-body text-xs hidden sm:block mt-0.5">
+            Canvas radius expands to 8 concentric rings. New petal unlocked: Purple Gomphrena (*Vadamalli*).
+          </p>
+</div>
+</div>
+<!-- Action Button Group -->
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<button class="terra-btn-secondary px-5 py-3 rounded-2xl font-label text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">photo_library</span>
+          Save Carpet
+        </button>
+<button class="terra-btn-primary px-7 py-3 rounded-2xl font-label text-sm font-bold uppercase tracking-wider flex items-center gap-2" id="ready-btn">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+          Ready for Next Round
+          <span class="ml-1 px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-label font-bold">
+            3/5 Ready
+          </span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/60 mt-auto">
+<div class="w-full py-6 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<!-- Brand Logo & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="font-headline text-lg font-bold text-on-surface">
+          Pookalam<span class="text-primary font-normal">.io</span>
+</span>
+<span class="hidden sm:inline text-outline-variant">|</span>
+<span class="font-body text-xs text-on-surface-variant">
+          © 2025 Pookalam.io. Real-time Onam Floral Carpet Arcade.
+        </span>
+</div>
+<!-- Footer Navigation Links -->
+<div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 font-label text-xs">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#rules">
+          Game Rules
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#lore">
+          Flower Lore
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#host">
+          Host Screen
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#discord">
+          Community Discord
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#privacy">
+          Privacy
+        </a>
+</div>
+</div>
+</footer>
+<!-- Micro-Interaction Vanilla JS: 8s Countdown & Manual Ready State -->
+<script>
+    let timeLeft = 7;
+    const countdownEl = document.getElementById('countdown-sec');
+    const advanceBar = document.getElementById('advance-bar');
+    const readyBtn = document.getElementById('ready-btn');
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      if (timeLeft >= 0) {
+        countdownEl.innerText = timeLeft + 's';
+        const percent = (timeLeft / 8) * 100;
+        advanceBar.style.width = percent + '%';
+      } else {
+        clearInterval(timer);
+        countdownEl.innerText = '0s';
+        advanceBar.style.width = '0%';
+      }
+    }, 1000);
+
+    readyBtn.addEventListener('click', () => {
+      readyBtn.classList.remove('terra-btn-primary');
+      readyBtn.classList.add('bg-primary-fixed', 'text-on-primary-fixed-variant', 'border', 'border-primary');
+      readyBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[20px]">check_circle</span>
+        YOU ARE READY!
+        <span class="ml-1 px-2 py-0.5 rounded-full bg-primary text-white text-xs font-label font-bold">
+          4/5 Ready
+        </span>
+      `;
+    });
+  </script>
+</body></html>

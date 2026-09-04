@@ -215,7 +215,7 @@ const DrawingCanvas = forwardRef(function DrawingCanvas(
 
   return (
     <div
-      className="canvas-container inline-block"
+      className="canvas-container-terra inline-block relative"
       style={{ width: size, height: size }}
     >
       <canvas
@@ -231,10 +231,16 @@ const DrawingCanvas = forwardRef(function DrawingCanvas(
         onTouchEnd={stopDrawing}
       />
       {disabled && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full">
-          <span className="text-onam-gold font-display font-bold text-xl animate-pulse-soft">
-            Canvas Locked 🔒
-          </span>
+        <div className="absolute inset-0 flex items-center justify-center bg-on-surface/20 rounded-full">
+          <div className="flex flex-col items-center gap-2">
+            <svg className="w-8 h-8 text-on-surface" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0110 0v4"></path>
+            </svg>
+            <span className="text-on-surface font-headline font-bold text-xl animate-pulse-soft">
+              Canvas Locked
+            </span>
+          </div>
         </div>
       )}
     </div>

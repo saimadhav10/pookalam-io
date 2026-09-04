@@ -8,37 +8,41 @@ export const PHASES = {
 };
 
 export const CREATION_TIME_OPTIONS = [
-  { value: 30, label: '30 seconds' },
-  { value: 60, label: '1 minute' },
-  { value: 120, label: '2 minutes' },
-  { value: 180, label: '3 minutes' },
+  { value: 30, label: '30s' },
+  { value: 60, label: '60s' },
+  { value: 120, label: '120s' },
+  { value: 180, label: '180s' },
 ];
 
 export const JUDGING_TIME_OPTIONS = [
-  { value: 15, label: '15 seconds' },
-  { value: 30, label: '30 seconds' },
-  { value: 45, label: '45 seconds' },
+  { value: 15, label: '15s Quick' },
+  { value: 30, label: '30s Balanced' },
+  { value: 45, label: '45s Chill' },
 ];
 
+// Authentic Kerala flower petal colors
 export const DRAWING_COLORS = [
-  '#F5A623', // Marigold Gold
-  '#E8721C', // Chrysanthemum Orange
-  '#C0392B', // Hibiscus Red
-  '#E91E63', // Rose Pink
-  '#6C3483', // Purple
-  '#2980B9', // Blue
-  '#27AE60', // Leaf Green
-  '#1B5E20', // Dark Green
-  '#F1C40F', // Bright Yellow
-  '#FFFFFF', // White / Jasmine
-  '#8B4513', // Brown
-  '#2C3E50', // Dark
+  { hex: '#c0392b', name: 'Chethi' },      // Hibiscus Crimson
+  { hex: '#d69a3a', name: 'Jamanthi' },     // Marigold Gold
+  { hex: '#34495e', name: 'Shanku' },       // Butterfly Pea Indigo
+  { hex: '#ffffff', name: 'Thumba' },       // Sacred White
+  { hex: '#fdf8ee', name: 'Mulla' },        // Jasmine Cream
+  { hex: '#d97d8f', name: 'Arali' },        // Oleander Pink
+  { hex: '#c86d48', name: 'Kongini' },      // Lantana Orange
+  { hex: '#4a7c59', name: 'Pachila' },      // Bilva Leaf Green
+  { hex: '#5b7f95', name: 'Neela' },        // Jacaranda Blue
+  { hex: '#e5b352', name: 'Manjal' },       // Turmeric Yellow
+  { hex: '#7a5c43', name: 'Nelam' },        // Soil Umber
+  { hex: '#5e7d42', name: 'Kaitha' },       // Screw Pine Olive
 ];
 
 export const BRUSH_SIZES = [
-  { value: 3, label: 'S' },
-  { value: 8, label: 'M' },
-  { value: 16, label: 'L' },
+  { value: 3, label: 'Fine 3px' },
+  { value: 8, label: 'Mid 8px' },
+  { value: 16, label: 'Bold 16px' },
+  { value: 28, label: 'Cluster 28' },
 ];
 
-export const SERVER_URL = 'http://localhost:3001';
+export const SERVER_URL =
+  import.meta.env.VITE_SERVER_URL ||
+  (import.meta.env.PROD ? '' : 'http://localhost:3001');
