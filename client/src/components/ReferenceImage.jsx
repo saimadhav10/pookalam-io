@@ -2,12 +2,12 @@ export default function ReferenceImage({ imageName, label = 'Reference', size = 
   const sizeClasses = size === 'large' ? 'max-w-md' : 'max-w-xs';
 
   return (
-    <div className={`flex flex-col items-center gap-3 ${sizeClasses}`}>
-      <h3 className="font-display font-semibold text-onam-gold text-sm uppercase tracking-wider flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-onam-gold animate-pulse-soft" />
+    <div className={`terra-card flex flex-col items-center gap-3 p-4 ${sizeClasses}`}>
+      <h3 className="font-headline font-semibold text-[#d69a3a] text-sm uppercase tracking-wider flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-[#d69a3a] animate-pulse-soft" />
         {label}
       </h3>
-      <div className="rounded-full overflow-hidden border-4 border-onam-gold/30 shadow-2xl shadow-onam-gold/10 animate-scale-in">
+      <div className="rounded-full overflow-hidden border-4 border-[#d69a3a]/30 shadow-md animate-scale-in">
         <img
           src={`/pookalams/${imageName}`}
           alt="Reference Pookalam"

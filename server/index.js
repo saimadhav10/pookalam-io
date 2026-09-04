@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
+const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const GameRoom = require('./GameRoom');
 const {
@@ -16,7 +17,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: '*',
     methods: ['GET', 'POST'],
   },
   maxHttpBufferSize: 5e6, // 5MB for canvas data
@@ -294,7 +295,16 @@ function handleEndOfJudging(roomCode, result) {
   }
 }
 
+// Serve static assets from the client build directory
+const clientDistPath = path.join(__dirname, '../client/dist');
+app.use(express.static(clientDistPath));
+
+// Fallback to index.html for single-page application routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientDistPath, 'index.html'));
+});
+
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
-  console.log(`🌸 Onam Pookalam Game Server running on port ${PORT}`);
+  console.log(`Pookalam Game Server running on port ${PORT}`);
 });

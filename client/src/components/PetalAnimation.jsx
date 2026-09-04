@@ -1,25 +1,27 @@
 import { useEffect, useState } from 'react';
 
 const PETAL_COLORS = [
-  '#F5A623', '#E8721C', '#C0392B', '#E91E63',
-  '#F1C40F', '#27AE60', '#FFFFFF', '#6C3483',
+  '#4a7c59', // primary
+  '#d69a3a', // ochre
+  '#b83230', // terracotta
 ];
 
-const PETAL_SHAPES = ['●', '❀', '✿', '🌸', '🌺', '✾'];
-
-function Petal({ delay, duration, left, color, shape, size }) {
+function Petal({ delay, duration, left, color, size }) {
   return (
     <div
-      className="petal animate-petal-fall"
+      className="petal animate-petal-fall absolute top-[-10%] opacity-60"
       style={{
         left: `${left}%`,
         animationDelay: `${delay}s`,
         animationDuration: `${duration}s`,
-        fontSize: `${size}px`,
+        width: `${size}px`,
+        height: `${size}px`,
         color,
       }}
     >
-      {shape}
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full drop-shadow-sm">
+        <path d="M12 2C12 2 4 8 4 14C4 18.4183 7.58172 22 12 22C16.4183 22 20 18.4183 20 14C20 8 12 2 12 2Z" />
+      </svg>
     </div>
   );
 }
@@ -34,8 +36,7 @@ export default function PetalAnimation({ count = 15 }) {
       duration: 6 + Math.random() * 8,
       left: Math.random() * 100,
       color: PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)],
-      shape: PETAL_SHAPES[Math.floor(Math.random() * PETAL_SHAPES.length)],
-      size: 12 + Math.random() * 20,
+      size: 16 + Math.random() * 24,
     }));
     setPetals(newPetals);
   }, [count]);

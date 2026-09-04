@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pookalam.io — Arena Live Studio</title>
+<!-- Google Fonts: Space Grotesk, Outfit, Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#ffb693",
+            "on-primary-container": "#6b4c00",
+            "error": "#ffb4ab",
+            "outline-variant": "#514532",
+            "primary-fixed": "#ffdea8",
+            "on-tertiary-fixed-variant": "#92001c",
+            "surface-variant": "#34324a",
+            "tertiary-container": "#ffb0ae",
+            "inverse-primary": "#7c5800",
+            "primary-fixed-dim": "#ffba20",
+            "on-surface-variant": "#d5c4ab",
+            "background": "#131127",
+            "surface-container-low": "#1b192f",
+            "on-primary-fixed": "#271900",
+            "on-background": "#e4dffe",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "surface-container-highest": "#34324a",
+            "on-secondary": "#561f00",
+            "inverse-on-surface": "#302e45",
+            "surface-container-lowest": "#0d0b21",
+            "on-primary-fixed-variant": "#5e4200",
+            "on-surface": "#e4dffe",
+            "on-secondary-container": "#572000",
+            "surface-bright": "#39364e",
+            "on-tertiary-container": "#a60022",
+            "surface-container-high": "#29273e",
+            "outline": "#9e8f78",
+            "surface-container": "#1f1d33",
+            "on-tertiary": "#680011",
+            "tertiary-fixed-dim": "#ffb3b1",
+            "secondary-container": "#fe6b00",
+            "tertiary": "#ffd7d5",
+            "on-tertiary-fixed": "#410007",
+            "surface": "#131127",
+            "surface-tint": "#ffba20",
+            "on-primary": "#412d00",
+            "primary-container": "#ffb800",
+            "secondary-fixed": "#ffdbcc",
+            "inverse-surface": "#e4dffe",
+            "tertiary-fixed": "#ffdad8",
+            "on-error": "#690005",
+            "surface-dim": "#131127",
+            "primary": "#ffdca1",
+            "on-secondary-fixed-variant": "#7a3000",
+            "on-secondary-fixed": "#351000",
+            "secondary": "#ffb693"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "board-radius-canvas": "520px",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "2rem",
+            "space-xs": "0.5rem",
+            "space-xl": "2rem",
+            "space-3xl": "4rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-2xl": "3rem",
+            "space-2xs": "0.25rem",
+            "space-sm": "0.75rem"
+          },
+          "fontFamily": {
+            "label-numeric": ["Space Grotesk"],
+            "headline-sm": ["Outfit"],
+            "display-xl": ["Outfit"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-pill": ["Space Grotesk"],
+            "headline-lg-mobile": ["Outfit"],
+            "display-xl-mobile": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Outfit"],
+            "headline-lg": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "label-numeric": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "display-xl": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-pill": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-xl-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Arcade tactile offset buttons */
+    .btn-arcade-primary {
+      box-shadow: 0 5px 0 0 #b88400, 0 10px 20px rgba(0, 0, 0, 0.4);
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-arcade-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 0 #b88400, 0 14px 24px rgba(255, 184, 0, 0.35);
+    }
+    .btn-arcade-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 #b88400, 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-arcade-secondary {
+      box-shadow: 0 4px 0 0 #0d0b21, 0 6px 14px rgba(0, 0, 0, 0.3);
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-arcade-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 0 #0d0b21;
+    }
+    .btn-arcade-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #0d0b21;
+    }
+
+    /* Ambient pulse & rings */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.96); opacity: 0.8; }
+      50% { transform: scale(1.04); opacity: 1; }
+      100% { transform: scale(0.96); opacity: 0.8; }
+    }
+    .timer-urgency-glow {
+      animation: pulse-ring 2s infinite ease-in-out;
+    }
+
+    /* Custom canvas checkered / textured radial mat */
+    .canvas-wood-mat {
+      background: radial-gradient(circle, #251710 0%, #160e0a 70%, #0d0b1a 100%);
+      box-shadow: inset 0 0 45px rgba(0,0,0,0.85);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- ==================== SHARED HEADER ==================== -->
+<header class="w-full bg-surface-container-lowest border-b-2 border-surface-variant shadow-[0_4px_0_0_#0D0B21] sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-space-md md:px-gutter-desktop h-20 max-w-7xl mx-auto">
+<!-- Brand Logo -->
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-secondary-container via-primary-container to-primary flex items-center justify-center shadow-[0_3px_0_0_#b88400]">
+<span class="material-symbols-outlined text-surface-container-lowest font-black" style="font-variation-settings: 'FILL' 1;">local_florist</span>
+</div>
+<span class="font-headline-lg text-headline-lg tracking-tight font-extrabold text-primary-container">Pookalam.io</span>
+</div>
+<!-- Navigation Links (Live Arena Context) -->
+<nav class="hidden md:flex items-center gap-space-lg">
+<a class="text-primary-container border-b-2 border-primary-container pb-1 font-bold font-headline-sm text-headline-sm tracking-tight flex items-center gap-space-2xs" href="#">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping"></span>
+          Arena
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface font-medium hover:text-primary transition-all duration-150" href="#">Lobbies</a>
+<a class="text-on-surface-variant hover:text-on-surface font-medium hover:text-primary transition-all duration-150" href="#">Leaderboard</a>
+<a class="text-on-surface-variant hover:text-on-surface font-medium hover:text-primary transition-all duration-150" href="#">How to Play</a>
+</nav>
+<!-- Trailing Controls & Room Action -->
+<div class="flex items-center gap-space-sm">
+<div class="hidden sm:flex items-center px-space-sm py-1.5 rounded-full bg-surface-container-high border border-surface-variant text-secondary font-label-numeric text-body-sm font-bold tracking-wide">
+          Room #POOKALAM
+        </div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all" title="Volume">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all" title="Fullscreen">
+<span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<button class="hidden lg:inline-flex items-center justify-center px-space-md py-2 bg-primary-container text-on-primary-container rounded-lg font-headline-sm text-body-md font-bold btn-arcade-primary">
+          Create Room
+        </button>
+</div>
+</div>
+</header>
+<!-- ==================== LIVE MATCH HEADER STRIP ==================== -->
+<section class="bg-surface-container-low border-b border-surface-variant/60 py-space-xs px-space-md md:px-gutter-desktop">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-sm">
+<!-- Round Indicator -->
+<div class="flex items-center gap-space-sm">
+<div class="px-space-sm py-1 bg-surface-container-high rounded-full border border-surface-variant flex items-center gap-space-2xs shadow-inner">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-pill text-label-pill uppercase text-primary tracking-wider">Round 2 of 4</span>
+<span class="text-outline text-label-sm">•</span>
+<span class="font-headline-sm text-body-md text-on-surface font-bold">Royal Athapookalam</span>
+</div>
+</div>
+<!-- Live Pulsing Urgency Timer -->
+<div class="flex items-center gap-space-sm">
+<div class="relative flex items-center gap-3 px-space-md py-1.5 rounded-2xl bg-surface-container-lowest border-2 border-primary-container/40 shadow-[0_0_24px_rgba(255,184,0,0.2)] timer-urgency-glow">
+<!-- Concentric SVG Circular Timer -->
+<div class="relative w-11 h-11 flex items-center justify-center">
+<svg class="w-11 h-11 -rotate-90" viewbox="0 0 44 44">
+<circle cx="22" cy="22" fill="none" r="18" stroke="#29273e" stroke-width="4"></circle>
+<circle cx="22" cy="22" fill="none" r="18" stroke="#ffb800" stroke-dasharray="113.1" stroke-dashoffset="35" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<span class="absolute material-symbols-outlined text-primary-container text-body-sm" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+<div class="flex flex-col pr-1">
+<div class="flex items-baseline gap-1">
+<span class="font-label-numeric text-headline-md text-primary-container tracking-tight">42</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">sec left</span>
+</div>
+<span class="text-[10px] font-label-pill text-secondary tracking-widest uppercase -mt-1 font-bold">Bonus Decay: Active</span>
+</div>
+</div>
+</div>
+<!-- Live Player Roster Status Strip -->
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded-full border border-surface-variant/80">
+<span class="font-label-sm text-label-sm text-on-surface-variant pr-1 uppercase tracking-wider hidden sm:inline">Arranging (6):</span>
+<!-- Player 1 (Submitted) -->
+<div class="relative group" title="Devika (Submitted!)">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-secondary to-secondary-container border-2 border-primary-container flex items-center justify-center text-xs font-bold text-surface-container-lowest">
+            DV
+          </div>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-surface-container-lowest flex items-center justify-center">
+<svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" stroke-width="3.5" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+<!-- Player 2 (Submitted) -->
+<div class="relative group" title="Aravind (Submitted!)">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary-container border-2 border-surface-variant flex items-center justify-center text-xs font-bold text-on-primary-container">
+            AR
+          </div>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-surface-container-lowest flex items-center justify-center">
+<svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" stroke-width="3.5" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+<!-- Player 3 (You - Active) -->
+<div class="relative ring-2 ring-primary-container ring-offset-2 ring-offset-surface-container rounded-full" title="You (Arranging...)">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-secondary-container to-secondary border-2 border-primary flex items-center justify-center text-xs font-extrabold text-surface-container-lowest">
+            YOU
+          </div>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+<!-- Player 4 (Arranging) -->
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-surface-variant flex items-center justify-center text-xs font-bold text-on-surface-variant opacity-80" title="Manu (Arranging)">
+          MN
+        </div>
+<!-- Player 5 (Arranging) -->
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-surface-variant flex items-center justify-center text-xs font-bold text-on-surface-variant opacity-80" title="Kripa (Arranging)">
+          KP
+        </div>
+<!-- Player 6 (Arranging) -->
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-surface-variant flex items-center justify-center text-xs font-bold text-on-surface-variant opacity-80" title="Rohan (Arranging)">
+          RH
+        </div>
+</div>
+</div>
+</section>
+<!-- ==================== MAIN GAMEPLAY STUDIO ==================== -->
+<main class="flex-1 max-w-7xl w-full mx-auto p-space-sm md:p-space-md lg:p-gutter-desktop grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT PANEL: Reference Pookalam Card (Col 1-3.5) -->
+<aside class="lg:col-span-3 bg-surface-container-low rounded-2xl border-2 border-surface-variant p-space-md flex flex-col gap-space-md shadow-[0_12px_32px_-4px_rgba(0,0,0,0.5)]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_10px_#ffb800] animate-pulse"></span>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Reference Goal</h2>
+</div>
+<span class="px-space-2xs py-0.5 rounded bg-surface-container text-label-sm font-label-pill text-secondary-fixed">88% Target</span>
+</div>
+<!-- 340x340px Reference Circular Card -->
+<div class="relative w-full aspect-square max-w-[340px] mx-auto rounded-2xl bg-surface-container-lowest border-2 border-surface-variant overflow-hidden flex items-center justify-center p-space-2xs shadow-inner">
+<!-- Generative Reference Graphic Representation -->
+<div class="relative w-full h-full rounded-full overflow-hidden border-4 border-surface-variant/80 flex items-center justify-center bg-[#18110b]">
+<!-- Concentric Pattern Rings -->
+<svg class="w-full h-full" viewbox="0 0 300 300">
+<!-- Concentric rings -->
+<circle cx="150" cy="150" fill="#2d1609" r="142" stroke="#ffb800" stroke-width="2"></circle>
+<circle cx="150" cy="150" fill="#a60022" r="122" stroke="#ffdea8" stroke-width="1.5"></circle>
+<circle cx="150" cy="150" fill="#fe6b00" r="98" stroke="#ffdca1" stroke-width="1.5"></circle>
+<circle cx="150" cy="150" fill="#ffdca1" r="74" stroke="#561f00" stroke-width="2"></circle>
+<circle cx="150" cy="150" fill="#285933" r="50" stroke="#ffdea8" stroke-width="1"></circle>
+<circle cx="150" cy="150" fill="#ffb800" r="30" stroke="#131127" stroke-width="2"></circle>
+<circle cx="150" cy="150" fill="#a60022" r="12"></circle>
+<!-- 8-petal mandala spokes -->
+<g opacity="0.75" stroke="#ffdca1" stroke-width="1.2">
+<line x1="150" x2="150" y1="8" y2="292"></line>
+<line x1="8" x2="292" y1="150" y2="150"></line>
+<line x1="50" x2="250" y1="50" y2="250"></line>
+<line x1="50" x2="250" y1="250" y2="50"></line>
+</g>
+<!-- Decorative petal petals -->
+<g fill="#ffb800" opacity="0.9">
+<path d="M 150,76 C 142,90 142,106 150,120 C 158,106 158,90 150,76 Z"></path>
+<path d="M 150,180 C 142,194 142,210 150,224 C 158,210 158,194 150,180 Z"></path>
+<path d="M 76,150 C 90,142 106,142 120,150 C 106,158 90,158 76,150 Z"></path>
+<path d="M 180,150 C 194,142 210,142 224,150 C 210,158 194,158 180,150 Z"></path>
+</g>
+</svg>
+<!-- Concentric Ring Guidance Overlays -->
+<div class="absolute inset-0 pointer-events-none rounded-full border border-primary/20"></div>
+</div>
+<!-- Floating Loupe Toggle Button -->
+<button class="absolute bottom-3 right-3 px-space-xs py-1 rounded-lg bg-surface-container-lowest/90 border border-surface-variant text-on-surface hover:text-primary flex items-center gap-1 text-label-sm font-label-pill shadow-lg backdrop-blur-sm transition-all hover:scale-105 active:scale-95">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="8"></circle>
+<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+<line x1="11" x2="11" y1="8" y2="14"></line>
+<line x1="8" x2="14" y1="11" y2="11"></line>
+</svg>
+          Zoom 2x
+        </button>
+<!-- Pulsating Gold Ring Label -->
+<div class="absolute top-3 left-3 px-space-xs py-0.5 rounded-full bg-primary-container/90 text-on-primary-container font-label-pill text-[10px] uppercase font-extrabold flex items-center gap-1 shadow-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-ping"></span>
+          Master Pattern
+        </div>
+</div>
+<!-- Layer Breakdown Mini Chips -->
+<div class="space-y-space-xs pt-space-xs border-t border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Recommended Layer Order:</span>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-body-sm p-1.5 rounded-lg bg-surface-container border border-surface-variant/40">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#a60022]"></span>
+<span class="font-medium text-on-surface">Outer Chethi Crimson</span>
+</div>
+<span class="font-label-numeric text-xs text-primary-container">Ring 1</span>
+</div>
+<div class="flex items-center justify-between text-body-sm p-1.5 rounded-lg bg-surface-container border border-surface-variant/40">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#ffb800]"></span>
+<span class="font-medium text-on-surface">Marigold Sunburst</span>
+</div>
+<span class="font-label-numeric text-xs text-primary-container">Ring 2</span>
+</div>
+<div class="flex items-center justify-between text-body-sm p-1.5 rounded-lg bg-surface-container border border-surface-variant/40">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#285933]"></span>
+<span class="font-medium text-on-surface">Leaf Garland Center</span>
+</div>
+<span class="font-label-numeric text-xs text-primary-container">Core</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- CENTER PANEL: Your Floral Canvas (Col 4-8.5) -->
+<section class="lg:col-span-5 flex flex-col items-center gap-space-md">
+<!-- Top Action Canvas Bar -->
+<div class="w-full flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<!-- Undo Button -->
+<button class="w-10 h-10 rounded-xl bg-surface-container-high border-2 border-surface-variant flex items-center justify-center text-on-surface hover:text-primary active:scale-90 transition-all shadow-[0_3px_0_0_#0D0B21]" title="Undo Petal">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M3 10h10a5 5 0 0 1 5 5v2m-15-7l4-4m-4 4l4 4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Redo Button -->
+<button class="w-10 h-10 rounded-xl bg-surface-container-high border-2 border-surface-variant flex items-center justify-center text-on-surface hover:text-primary active:scale-90 transition-all shadow-[0_3px_0_0_#0D0B21]" title="Redo Petal">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M21 10H11a5 5 0 0 0-5 5v2m15-7l-4-4m4 4l-4 4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Clear Mat Canvas -->
+<button class="h-10 px-space-sm rounded-xl bg-surface-container-high border-2 border-surface-variant flex items-center gap-1 text-on-surface-variant hover:text-error text-body-sm font-bold active:scale-90 transition-all shadow-[0_3px_0_0_#0D0B21]" title="Reset Petals">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="hidden sm:inline">Clear</span>
+</button>
+</div>
+<!-- Symmetry Quick Switcher -->
+<div class="flex items-center gap-1 bg-surface-container-high p-1 rounded-xl border border-surface-variant">
+<span class="text-label-sm font-label-pill text-on-surface-variant px-1 hidden sm:inline">Mandala:</span>
+<button class="px-2.5 py-1 text-label-sm font-label-pill rounded-lg text-on-surface-variant hover:text-primary transition-all">Off</button>
+<button class="px-2.5 py-1 text-label-sm font-label-pill rounded-lg text-on-surface-variant hover:text-primary transition-all">4x</button>
+<button class="px-2.5 py-1 text-label-sm font-label-pill rounded-lg bg-primary-container text-on-primary-container font-bold shadow-sm">8x</button>
+</div>
+</div>
+<!-- MAIN DRAWING BOARD: 440x440px Wood Mat -->
+<div class="relative w-full max-w-[460px] aspect-square p-space-sm rounded-3xl bg-surface-container-low border-2 border-surface-variant shadow-[0_20px_45px_rgba(0,0,0,0.6)] flex items-center justify-center">
+<!-- Teakwood Floor Mat Frame -->
+<div class="relative w-full h-full rounded-full canvas-wood-mat border-4 border-[#3e271a] flex items-center justify-center overflow-hidden cursor-crosshair group shadow-[inset_0_0_30px_#000]">
+<!-- Concentric Ring Visual Guide Overlays (Toggleable) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewbox="0 0 400 400">
+<!-- 8-fold radial guide lines -->
+<line stroke="#ffdea8" stroke-dasharray="4 4" stroke-width="1" x1="200" x2="200" y1="0" y2="400"></line>
+<line stroke="#ffdea8" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="400" y1="200" y2="200"></line>
+<line stroke="#ffdea8" stroke-dasharray="4 4" stroke-width="1" x1="58" x2="342" y1="58" y2="342"></line>
+<line stroke="#ffdea8" stroke-dasharray="4 4" stroke-width="1" x1="58" x2="342" y1="342" y2="58"></line>
+<!-- Concentric guide boundaries -->
+<circle cx="200" cy="200" fill="none" r="180" stroke="#ffba20" stroke-dasharray="6 6" stroke-width="1.5"></circle>
+<circle cx="200" cy="200" fill="none" r="135" stroke="#ffba20" stroke-dasharray="4 4" stroke-width="1"></circle>
+<circle cx="200" cy="200" fill="none" r="90" stroke="#ffba20" stroke-dasharray="4 4" stroke-width="1"></circle>
+<circle cx="200" cy="200" fill="none" r="45" stroke="#ffba20" stroke-dasharray="3 3" stroke-width="1.5"></circle>
+<circle cx="200" cy="200" fill="#ffb800" r="6"></circle>
+</svg>
+<!-- ACTIVE USER DRAWN PETALS MOCKUP (Simulated high-res petals) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 400 400">
+<!-- Outer Ring Arranged Petals -->
+<g fill="#fe6b00" opacity="0.95">
+<circle cx="200" cy="35" r="14"></circle>
+<circle cx="200" cy="365" r="14"></circle>
+<circle cx="35" cy="200" r="14"></circle>
+<circle cx="365" cy="200" r="14"></circle>
+<circle cx="83" cy="83" r="14"></circle>
+<circle cx="317" cy="317" r="14"></circle>
+<circle cx="83" cy="317" r="14"></circle>
+<circle cx="317" cy="83" r="14"></circle>
+</g>
+<!-- Mid Ring Marigold Petals -->
+<g fill="#ffb800">
+<path d="M 200,90 C 190,110 190,130 200,145 C 210,130 210,110 200,90 Z"></path>
+<path d="M 200,255 C 190,270 190,290 200,310 C 210,290 210,270 200,255 Z"></path>
+<path d="M 90,200 C 110,190 130,190 145,200 C 130,210 110,210 90,200 Z"></path>
+<path d="M 255,200 C 270,190 290,190 310,200 C 290,210 270,210 255,200 Z"></path>
+<!-- Diagonal petals -->
+<path d="M 122,122 C 125,145 140,155 155,155 C 155,140 145,125 122,122 Z"></path>
+<path d="M 278,278 C 275,255 260,245 245,245 C 245,260 255,275 278,278 Z"></path>
+<path d="M 122,278 C 145,275 155,260 155,245 C 140,245 125,255 122,278 Z"></path>
+<path d="M 278,122 C 255,125 245,140 245,155 C 260,155 275,145 278,122 Z"></path>
+</g>
+<!-- Inner Thumba White Buds -->
+<g fill="#ffffff" opacity="0.9">
+<circle cx="200" cy="165" r="7"></circle>
+<circle cx="200" cy="235" r="7"></circle>
+<circle cx="165" cy="200" r="7"></circle>
+<circle cx="235" cy="200" r="7"></circle>
+<circle cx="175" cy="175" r="6"></circle>
+<circle cx="225" cy="225" r="6"></circle>
+<circle cx="175" cy="225" r="6"></circle>
+<circle cx="225" cy="175" r="6"></circle>
+</g>
+<!-- Current Petal Cursor Ring preview on hover -->
+<circle cx="200" cy="200" fill="none" opacity="0.8" r="18" stroke="#ffdea8" stroke-dasharray="3 3" stroke-width="2"></circle>
+</svg>
+<!-- Interactive Active Hover Ring (User Petal Indicator) -->
+<div class="absolute w-10 h-10 rounded-full border-2 border-primary-container pointer-events-none opacity-0 group-hover:opacity-100 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 transition-opacity duration-150 flex items-center justify-center shadow-[0_0_12px_#ffb800]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<!-- Live Center Nilavilakku Brass Lamp Accent Symbol -->
+<div class="w-8 h-8 rounded-full bg-gradient-to-t from-primary-container to-secondary-fixed flex items-center justify-center border border-on-primary-container shadow-[0_0_15px_#ffba20]">
+<div class="w-2.5 h-2.5 rounded-full bg-surface-container-lowest"></div>
+</div>
+</div>
+</div>
+<!-- Quick Canvas Controls Dock -->
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-2xl border border-surface-variant">
+<label class="flex items-center gap-2 text-label-sm font-label-pill cursor-pointer select-none">
+<input checked="" class="rounded border-surface-variant text-primary-container focus:ring-0 focus:ring-offset-0 bg-surface-container-high" type="checkbox"/>
+<span class="text-on-surface">Concentric Guides</span>
+</label>
+<span class="text-outline text-xs">|</span>
+<label class="flex items-center gap-2 text-label-sm font-label-pill cursor-pointer select-none">
+<input checked="" class="rounded border-surface-variant text-primary-container focus:ring-0 focus:ring-offset-0 bg-surface-container-high" type="checkbox"/>
+<span class="text-on-surface">Auto-Snap Angles</span>
+</label>
+</div>
+</section>
+<!-- RIGHT PANEL: The Reimagined Docked Tool Studio (Col 9-12) -->
+<aside class="lg:col-span-4 bg-surface-container-low rounded-2xl border-2 border-surface-variant p-space-md flex flex-col gap-space-md shadow-[0_12px_32px_-4px_rgba(0,0,0,0.5)]">
+<!-- Studio Header -->
+<div class="flex items-center justify-between border-b border-surface-variant pb-space-xs">
+<div class="flex items-center gap-2">
+<svg class="w-5 h-5 text-primary-container" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Floral Studio</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-[11px] font-label-pill text-primary-container font-bold border border-surface-variant">
+          8x Radial Active
+        </span>
+</div>
+<!-- 1. TOOL MODE TABS (Chunky Arcade buttons) -->
+<div class="grid grid-cols-4 gap-1.5 bg-surface-container-lowest p-1.5 rounded-xl border border-surface-variant">
+<!-- Tab: Petal Stamp (Active) -->
+<button class="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-primary-container text-on-primary-container font-bold shadow-[0_3px_0_0_#b88400] transition-all">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C12 2 7 8 7 13C7 16.31 9.69 19 13 19C16.31 19 19 16.31 19 13C19 8 12 2 12 2Z"></path>
+</svg>
+<span class="text-[10px] font-label-pill mt-1">Petal</span>
+</button>
+<!-- Tab: Brush Stroke -->
+<button class="flex flex-col items-center justify-center py-2 px-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M7 21a4 4 0 01-4-4 8.014 8.014 0 014-7.538 8.014 8.014 0 018.736-2.912A8.005 8.005 0 0121 15a4 4 0 01-4 4H7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-label-pill mt-1">Garland</span>
+</button>
+<!-- Tab: Dropper -->
+<button class="flex flex-col items-center justify-center py-2 px-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-label-pill mt-1">Dropper</span>
+</button>
+<!-- Tab: Eraser -->
+<button class="flex flex-col items-center justify-center py-2 px-1 rounded-lg text-on-surface-variant hover:text-error hover:bg-surface-container transition-all">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7M10 11v6m4-6v6m4-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-label-pill mt-1">Pluck</span>
+</button>
+</div>
+<!-- 2. BRUSH & PETAL SIZE CONTROLLER -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-pill uppercase text-on-surface-variant tracking-wider">Stamp Size</span>
+<span class="font-label-numeric text-body-sm text-primary-container font-bold">16px • Bold Garland</span>
+</div>
+<!-- 4 Tactile Size Buttons -->
+<div class="grid grid-cols-4 gap-2">
+<!-- Fine 3px -->
+<button class="p-2 rounded-xl bg-surface-container-high border-2 border-surface-variant flex flex-col items-center gap-1.5 hover:border-primary-container active:scale-95 transition-all">
+<div class="w-6 h-6 flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<span class="text-[10px] font-label-pill text-on-surface-variant">Fine 3px</span>
+</button>
+<!-- Medium 8px -->
+<button class="p-2 rounded-xl bg-surface-container-high border-2 border-surface-variant flex flex-col items-center gap-1.5 hover:border-primary-container active:scale-95 transition-all">
+<div class="w-6 h-6 flex items-center justify-center">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+</div>
+<span class="text-[10px] font-label-pill text-on-surface-variant">Mid 8px</span>
+</button>
+<!-- Bold 16px (Selected) -->
+<button class="p-2 rounded-xl bg-surface-container-high border-2 border-primary-container ring-1 ring-primary-container flex flex-col items-center gap-1.5 shadow-[0_0_12px_rgba(255,184,0,0.25)] active:scale-95 transition-all">
+<div class="w-6 h-6 flex items-center justify-center">
+<span class="w-4 h-4 rounded-full bg-primary-container shadow-[0_0_8px_#ffb800]"></span>
+</div>
+<span class="text-[10px] font-label-pill text-primary-container font-bold">Bold 16px</span>
+</button>
+<!-- Cluster 28px -->
+<button class="p-2 rounded-xl bg-surface-container-high border-2 border-surface-variant flex flex-col items-center gap-1.5 hover:border-primary-container active:scale-95 transition-all">
+<div class="w-6 h-6 flex items-center justify-center">
+<span class="w-5 h-5 rounded-full bg-primary"></span>
+</div>
+<span class="text-[10px] font-label-pill text-on-surface-variant">Cluster 28</span>
+</button>
+</div>
+</div>
+<!-- 3. TRADITIONAL KERALA FLOWER PALETTE (12 Curated botanical swatches) -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-pill uppercase text-on-surface-variant tracking-wider">Kerala Flower Swatches</span>
+<span class="text-xs text-primary font-bold">12 Native Petals</span>
+</div>
+<div class="grid grid-cols-4 gap-2.5 bg-surface-container-lowest p-space-sm rounded-2xl border border-surface-variant">
+<!-- 1. Chethi (Hibiscus Crimson) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Chethi (Hibiscus Red)">
+<div class="w-10 h-10 rounded-full bg-[#d61c38] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md flex items-center justify-center">
+<span class="text-[9px] font-bold text-white opacity-0 group-hover:opacity-100">CH</span>
+</div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Chethi</span>
+</button>
+<!-- 2. Jamanthi (Marigold Gold - ACTIVE SELECTED) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl bg-surface-container-high transition-all" title="Jamanthi (Marigold Gold)">
+<div class="w-10 h-10 rounded-full bg-[#ffb800] border-2 border-white ring-2 ring-primary-container shadow-[0_0_14px_#ffb800] scale-110 flex items-center justify-center">
+<svg class="w-4 h-4 text-surface-container-lowest" fill="currentColor" viewbox="0 0 24 24">
+<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>
+</svg>
+</div>
+<span class="text-[9px] font-label-pill text-primary-container font-extrabold mt-1 truncate max-w-[55px]">Jamanthi</span>
+</button>
+<!-- 3. Shankupushpam (Indigo Butterfly Pea) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Shankupushpam (Indigo)">
+<div class="w-10 h-10 rounded-full bg-[#203a8f] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md flex items-center justify-center">
+<span class="text-[9px] font-bold text-white opacity-0 group-hover:opacity-100">SH</span>
+</div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Shanku</span>
+</button>
+<!-- 4. Thumba (Jasmine White) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Thumba (Pure White)">
+<div class="w-10 h-10 rounded-full bg-[#f8f9fa] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md flex items-center justify-center">
+<span class="text-[9px] font-bold text-surface-container-lowest opacity-0 group-hover:opacity-100">TH</span>
+</div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Thumba</span>
+</button>
+<!-- 5. Mulla (Pale Jasmine Cream) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Mulla (Pale Cream)">
+<div class="w-10 h-10 rounded-full bg-[#fff4db] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md"></div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Mulla</span>
+</button>
+<!-- 6. Arali (Nerium Pink) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Arali (Pink)">
+<div class="w-10 h-10 rounded-full bg-[#e84393] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md"></div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Arali</span>
+</button>
+<!-- 7. Kongini (Coral Orange) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Kongini (Coral Orange)">
+<div class="w-10 h-10 rounded-full bg-[#fe6b00] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md"></div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Kongini</span>
+</button>
+<!-- 8. Pachila (Leaf Emerald Green) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Pachila (Leaf Green)">
+<div class="w-10 h-10 rounded-full bg-[#1b7938] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md"></div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Pachila</span>
+</button>
+<!-- 9. Neela (Cobalt Sky) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Neela (Cobalt)">
+<div class="w-10 h-10 rounded-full bg-[#0984e3] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md"></div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Neela</span>
+</button>
+<!-- 10. Manjal (Turmeric Gold) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Manjal (Turmeric)">
+<div class="w-10 h-10 rounded-full bg-[#e1b12c] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md"></div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Manjal</span>
+</button>
+<!-- 11. Nelam (Sacred Soil Brown) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Nelam (Soil)">
+<div class="w-10 h-10 rounded-full bg-[#5d3824] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md"></div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Nelam</span>
+</button>
+<!-- 12. Kaithapoo (Forest Jade) -->
+<button class="group relative flex flex-col items-center p-1 rounded-xl hover:bg-surface-container transition-all" title="Kaithapoo (Jade)">
+<div class="w-10 h-10 rounded-full bg-[#009432] border-2 border-surface-variant group-hover:scale-110 transition-transform shadow-md"></div>
+<span class="text-[9px] font-label-pill text-on-surface-variant mt-1 truncate max-w-[55px]">Kaitha</span>
+</button>
+</div>
+</div>
+<!-- 4. CUSTOM HUE PICKER BUTTON -->
+<button class="w-full py-2.5 px-space-md rounded-xl bg-surface-container border-2 border-surface-variant hover:border-primary flex items-center justify-between text-body-sm font-bold text-on-surface active:scale-98 transition-all">
+<div class="flex items-center gap-2">
+<!-- Rainbow Gradient Ring -->
+<span class="w-5 h-5 rounded-full bg-gradient-to-tr from-red-500 via-yellow-400 via-green-500 via-blue-500 to-purple-500 p-0.5 inline-block">
+<span class="w-full h-full rounded-full bg-surface-container block"></span>
+</span>
+<span>Mix Custom Petal Hue</span>
+</div>
+<svg class="w-4 h-4 text-on-surface-variant" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- 5. PRIMARY CTA: SUBMIT EARLY ACTION -->
+<div class="pt-space-xs mt-auto">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-headline-sm uppercase tracking-wider font-extrabold flex items-center justify-center gap-space-sm btn-arcade-primary">
+<svg class="w-6 h-6 text-on-primary-container" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+</svg>
+<span>Submit Pookalam</span>
+</button>
+<!-- Bonus XP indicator -->
+<div class="flex items-center justify-center gap-1.5 mt-2 text-secondary font-label-pill text-label-sm font-bold">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+</svg>
+<span>+50 Early Bird XP Active</span>
+</div>
+</div>
+</aside>
+</main>
+<!-- ==================== SHARED FOOTER ==================== -->
+<footer class="w-full bg-surface-container-lowest border-t-2 border-surface-variant mt-space-xl">
+<div class="w-full py-space-lg px-space-md md:px-gutter-desktop max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-space-md">
+<!-- Brand & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left">
+<span class="font-headline-md text-headline-md font-black text-primary-container">Pookalam.io</span>
+<span class="hidden sm:inline text-surface-variant font-bold">|</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          © 2025 Pookalam.io. Real-time Onam Floral Carpet Arcade.
+        </p>
+</div>
+<!-- Footer Navigation Links -->
+<nav class="flex flex-wrap justify-center items-center gap-space-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-150" href="#">Game Rules</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-150" href="#">Flower Lore</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-150" href="#">Host Screen</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-150" href="#">Community Discord</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-150" href="#">Privacy</a>
+</nav>
+</div>
+</footer>
+</body></html>

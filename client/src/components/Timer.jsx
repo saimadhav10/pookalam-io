@@ -34,10 +34,10 @@ export default function Timer({ duration, onEnd, size = 'normal' }) {
   const isWarning = timeLeft <= 20 && !isUrgent;
 
   const strokeColor = isUrgent
-    ? '#C0392B'
+    ? '#b83230'
     : isWarning
-    ? '#F5A623'
-    : '#27AE60';
+    ? '#d69a3a'
+    : '#4a7c59';
 
   const mins = Math.floor(timeLeft / 60);
   const secs = timeLeft % 60;
@@ -55,8 +55,8 @@ export default function Timer({ duration, onEnd, size = 'normal' }) {
           cy="50"
           r="45"
           fill="none"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="6"
+          stroke="#eae6de"
+          strokeWidth="3.5"
         />
         {/* Progress ring */}
         <circle
@@ -65,7 +65,7 @@ export default function Timer({ duration, onEnd, size = 'normal' }) {
           r="45"
           fill="none"
           stroke={strokeColor}
-          strokeWidth="6"
+          strokeWidth="3.5"
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={dashOffset}
@@ -73,8 +73,8 @@ export default function Timer({ duration, onEnd, size = 'normal' }) {
         />
       </svg>
       <span
-        className={`${textSize} font-display font-bold ${
-          isUrgent ? 'text-onam-red animate-countdown-pulse' : 'text-onam-cream'
+        className={`${textSize} font-numeric font-bold ${
+          isUrgent ? 'text-[#b83230] animate-countdown-pulse' : 'text-on-surface'
         }`}
       >
         {timeDisplay}
