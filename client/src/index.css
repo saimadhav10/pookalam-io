@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-onam-deep text-onam-cream antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:bg-white/10 hover:border-onam-gold/30 hover:shadow-onam-gold/10 hover:shadow-2xl;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-onam-gold to-onam-orange text-white font-display font-semibold rounded-xl 
+           shadow-lg shadow-onam-gold/25 transition-all duration-300 
+           hover:shadow-onam-gold/40 hover:shadow-xl hover:-translate-y-0.5 hover:brightness-110
+           active:translate-y-0 active:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white/10 border border-white/20 text-onam-cream font-display font-semibold rounded-xl 
+           transition-all duration-300 hover:bg-white/20 hover:border-onam-gold/30
+           active:bg-white/15;
+  }
+
+  .btn-danger {
+    @apply px-6 py-3 bg-gradient-to-r from-onam-red to-onam-pink text-white font-display font-semibold rounded-xl
+           shadow-lg shadow-onam-red/25 transition-all duration-300
+           hover:shadow-onam-red/40 hover:shadow-xl hover:-translate-y-0.5
+           active:translate-y-0;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/15 rounded-xl text-onam-cream font-body
+           placeholder:text-white/30 focus:outline-none focus:border-onam-gold/50 focus:ring-2 focus:ring-onam-gold/20
+           transition-all duration-300;
+  }
+
+  .room-code-display {
+    @apply font-display text-4xl font-bold tracking-[0.3em] text-onam-gold;
+  }
+
+  .section-title {
+    @apply font-display text-2xl font-bold text-onam-cream;
+  }
+
+  .badge {
+    @apply px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .badge-gold {
+    @apply badge bg-onam-gold/20 text-onam-gold border border-onam-gold/30;
+  }
+
+  .badge-green {
+    @apply badge bg-onam-green/20 text-onam-green border border-onam-green/30;
+  }
+
+  /* Drawing canvas */
+  .canvas-container {
+    @apply relative rounded-full overflow-hidden shadow-2xl border-4 border-white/20;
+  }
+
+  .tool-button {
+    @apply p-2.5 rounded-xl bg-white/5 border border-white/10 text-onam-cream transition-all duration-200
+           hover:bg-white/15 hover:border-onam-gold/30;
+  }
+
+  .tool-button-active {
+    @apply bg-onam-gold/20 border-onam-gold/50 text-onam-gold shadow-md shadow-onam-gold/20;
+  }
+
+  .color-swatch {
+    @apply w-8 h-8 rounded-full border-2 border-white/20 cursor-pointer transition-all duration-200
+           hover:scale-110 hover:border-white/50;
+  }
+
+  .color-swatch-active {
+    @apply ring-2 ring-onam-gold ring-offset-2 ring-offset-onam-deep scale-110 border-white/50;
+  }
+}
+
+/* Star rating hover effects */
+.star-icon {
+  transition: all 0.15s ease-out;
+}
+.star-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Petal particles */
+.petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+}
+
+/* Circular canvas clip */
+.circular-canvas canvas {
+  border-radius: 50%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 166, 35, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 166, 35, 0.5);
+}
+
+/* Confetti piece */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  z-index: 100;
+  pointer-events: none;
+}
