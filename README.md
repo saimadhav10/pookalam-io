@@ -15,7 +15,7 @@
 
 **A festive, fast-paced multiplayer drawing and judging arcade game inspired by the rich Kerala harvest festival tradition of Athapookalam (floral carpet design).**
 
-[Features](#-features) • [How to Play](#-how-to-play) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Deployment](#-deployment) • [Cultural Inspiration](#-cultural-inspiration)
+[Features](#-features) • [How to Play](#-how-to-play) • [Tech Stack](#-tech-stack) • [Deployment](#-deployment) • [Cultural Inspiration](#-cultural-inspiration)
 
 </div>
 
@@ -104,58 +104,6 @@
 
 ### Hosting & DevOps
 - **Render**: Unified single-service deployment running static Vite assets served by Node.js/Express.
-
----
-
-## 🚀 Getting Started Locally
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) (version 18.0.0 or higher)
-- [npm](https://www.npmjs.com/) (version 9 or higher)
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/saimadhav10/pookalam-io.git
-cd pookalam-io
-```
-
-### 2. Install Dependencies
-Install dependencies for both client and server:
-```bash
-npm run install:all
-```
-
-### 3. Run Development Servers
-Open two terminal windows to run both the frontend and backend with hot reload:
-
-**Terminal 1 (Backend Server):**
-```bash
-npm run dev:server
-# Server runs on http://localhost:3001
-```
-
-**Terminal 2 (Frontend Client):**
-```bash
-npm run dev:client
-# Client runs on http://localhost:5173
-```
-
-Navigate to `http://localhost:5173` in your browser to start playing!
-
----
-
-## 📦 Production Build
-
-To build the client assets and test the unified production server locally:
-
-```bash
-# Build the client and install production server dependencies
-npm run build
-
-# Start the production server
-npm start
-```
-The unified app will be available on `http://localhost:3001` (or the port defined by `PORT`).
 
 ---
 
